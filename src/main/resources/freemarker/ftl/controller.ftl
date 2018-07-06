@@ -56,10 +56,10 @@ public class ${entityName}Controller {
 	@GetMapping("/get${entityName}ById/{id}")
 	@ApiOperation(value = "获取${entityComment}信息", notes = "获取${entityComment}信息[${objectName}]，作者：${author}")
 	@ApiImplicitParam(paramType="path", name = "id", value = "${entityComment}id", required = true, dataType = "Long")
-	public JsonResult get{entityName}ById(@PathVariable("id")Long id){
+	public JsonResult get${entityName}ById(@PathVariable("id")Long id){
 		JsonResult result=new JsonResult();
 		try {
-			{entityName} ${objectName}=${objectName}ServiceImpl.selectByPrimaryKey(id);
+			${entityName} ${objectName}=${objectName}ServiceImpl.selectByPrimaryKey(id);
 			if (${objectName}!=null) {
 				result.setCode(1);
 				result.setMessage("成功");
@@ -86,7 +86,7 @@ public class ${entityName}Controller {
 	 */
 	@PostMapping("/insertSelective")
 	@ApiOperation(value = "添加${entityComment}", notes = "添加${entityComment}[${objectName}],作者：${author}")
-	public JsonResult insertSelective({entityName} ${objectName}){
+	public JsonResult insertSelective(${entityName} ${objectName}){
 		JsonResult result=new JsonResult();
 		try {
 			int rg=${objectName}ServiceImpl.insertSelective(${objectName});
@@ -147,7 +147,7 @@ public class ${entityName}Controller {
 	 */
 	@ApiOperation(value = "修改${entityComment}", notes = "修改${entityComment}[${objectName}],作者：${author}")
 	@PostMapping("/updateByPrimaryKeySelective")
-	public JsonResult updateByPrimaryKeySelective({entityName} ${objectName}){
+	public JsonResult updateByPrimaryKeySelective(${entityName} ${objectName}){
 		JsonResult result=new JsonResult();
 		try {
 			int reg = ${objectName}ServiceImpl.updateByPrimaryKeySelective(${objectName});
@@ -171,16 +171,16 @@ public class ${entityName}Controller {
 	/**
 	 * @explain 获取匹配${entityComment}
 	 * @param   对象参数：${objectName}
-	 * @return  List<{entityName}>
+	 * @return  List<${entityName}>
 	 * @author  ${author}
 	 * @time    ${createTime}
 	 */
 	@ApiOperation(value = "条件查询${entityComment}", notes = "条件查询[${objectName}],作者：${author}")
-	@PostMapping("/query{entityName}List")
-	public JsonResult query{entityName}List({entityName} ${objectName}){
+	@PostMapping("/query${entityName}List")
+	public JsonResult query${entityName}List(${entityName} ${objectName}){
 		JsonResult result=new JsonResult();
 		try {
-			List<{entityName}> list = ${objectName}ServiceImpl.query{entityName}List(${objectName});
+			List<${entityName}> list = ${objectName}ServiceImpl.query${entityName}List(${objectName});
 			result.setCode(1);
 			result.setMessage("成功");
 			result.setData(list);
@@ -194,28 +194,28 @@ public class ${entityName}Controller {
 	
 	/**
 	 * @explain 分页条件查询${entityComment}   
-	 * @param   对象参数：AppPage<{entityName}>
-	 * @return  PageInfo<{entityName}>
+	 * @param   对象参数：AppPage<${entityName}>
+	 * @return  PageInfo<${entityName}>
 	 * @author  ${author}
 	 * @time    ${createTime}
 	 */
-	@GetMapping("/getPage{entityName}")
-	@ApiOperation(value = "分页查询", notes = "分页查询返回对象[PageInfo<{entityName}>],作者：边鹏")
+	@GetMapping("/getPage${entityName}")
+	@ApiOperation(value = "分页查询", notes = "分页查询返回对象[PageInfo<${entityName}>],作者：边鹏")
 	@ApiImplicitParams({
         @ApiImplicitParam(paramType="query", name = "pageNum", value = "当前页", required = true, dataType = "int"),
         @ApiImplicitParam(paramType="query", name = "pageSize", value = "页行数", required = true, dataType = "int")
     })
-	public JsonResult get{entityName}BySearch(Integer pageNum,Integer pageSize){
+	public JsonResult get${entityName}BySearch(Integer pageNum,Integer pageSize){
 		JsonResult result=new JsonResult();
-		AppPage<{entityName}> page =new AppPage<{entityName}>();
+		AppPage<${entityName}> page =new AppPage<${entityName}>();
 		page.setPageNum(pageNum);
 		page.setPageSize(pageSize);
 		//其他参数
-		{entityName} ${objectName}=new {entityName}();
+		${entityName} ${objectName}=new ${entityName}();
 		page.setParam(${objectName});
 		//分页数据
 		try {
-			PageInfo<{entityName}> pageInfo = ${objectName}ServiceImpl.get{entityName}BySearch(page);
+			PageInfo<${entityName}> pageInfo = ${objectName}ServiceImpl.get${entityName}BySearch(page);
 			result.setCode(1);
 			result.setMessage("成功");
 			result.setData(pageInfo);

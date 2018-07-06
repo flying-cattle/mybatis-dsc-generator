@@ -2,16 +2,6 @@ package com.github.mybatis.util;
 
 public class MySqlToJavaUtil {
 	
-	/**
-	 * 
-	 * @Title: firstTocapitalLetters 
-	 * @Description: TODO(类名首先字母变大写) 
-	 * @param table 
-	 * @return 设定文件 
-	 * @return String 返回类型 
-	 * @author BianPeng 
-	 * @date 2018年6月30日 
-	 */
 	public static String getClassName(String table) {
 		table=changeToJavaFiled(table);
 		StringBuilder sbuilder = new StringBuilder();
@@ -21,16 +11,6 @@ public class MySqlToJavaUtil {
 		return sbuilder.toString();
 	}
 	
-	/**
-	 * 
-	 * @Title: changeToJavaFiled 
-	 * @Description: TODO(将数据库中带下划线的字段转换为Java常用的驼峰字段) 
-	 * @param field 
-	 * @return 设定文件 
-	 * @return String 返回类型 
-	 * @author BianPeng 
-	 * @date 2018年6月30日 
-	 */
 	public static String changeToJavaFiled(String field) {
 		String[] fields = field.split("_");
 		StringBuilder sbuilder = new StringBuilder(fields[0]);
@@ -42,16 +22,6 @@ public class MySqlToJavaUtil {
 		return sbuilder.toString();
 	}
 	
-	/**
-	 * 
-	 * @Title: sqlTypeToJavaType 
-	 * @Description: TODO(功能：感觉数据类型获得Java的数据类型) 
-	 * @param sqlType
-	 * @return javaType
-	 * @return String 返回类型 
-	 * @author BianPeng 
-	 * @date 2018年6月30日 
-	 */
 	public static String jdbcTypeToJavaType(String sqlType) {
 		if (sqlType.equalsIgnoreCase("bit")) {
 			return "Boolean";

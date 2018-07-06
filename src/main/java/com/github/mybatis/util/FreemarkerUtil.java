@@ -10,16 +10,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 
 public class FreemarkerUtil {
-	/**
-	 * 创建通过模板生成的文件
-	 * 
-	 * @param dataModel
-	 *            数据模型
-	 * @param templateName
-	 *            输出模版
-	 * @param filePath
-	 *            输出文件路径
-	 */
+	 
 	public static JsonResult createFile(BasisInfo dataModel, String templateName, String filePath) {
 		JsonResult result=new JsonResult();
 		FileWriter out = null;

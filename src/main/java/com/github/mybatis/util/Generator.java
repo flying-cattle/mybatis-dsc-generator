@@ -15,34 +15,20 @@ public class Generator {
 	public static final String SERVICE_IMPL="serviceImpl";
 	public static final String CONTROLLER="controller";
 	
-	/**
-	 * @explain ①创建实体类
-	 * @param   对象参数：url、BasisInfo
-	 * @return  JsonResult
-	 * @author  BianP
-	 */
+	
+	//①创建实体类
 	public static JsonResult createEntity(String url,BasisInfo bi) {
 		String fileUrl= EntityInfoUtil.getGeneratorFileUrl(url, bi.getEntityUrl(), bi.getEntityName(), ENTITY);
 		return FreemarkerUtil.createFile(bi, "entity.ftl", fileUrl);
 	}
 	
-	/**
-	 * @explain ②创建DAO
-	 * @param   对象参数：url、BasisInfo
-	 * @return  JsonResult
-	 * @author  BianP
-	 */
+	//②创建DAO
 	public static JsonResult createDao(String url,BasisInfo bi) {
 		String fileUrl= EntityInfoUtil.getGeneratorFileUrl(url, bi.getDaoUrl(), bi.getEntityName(), DAO);
 		return FreemarkerUtil.createFile(bi, "dao.ftl", fileUrl);
 	}
 	
-	/**
-	 * @explain ③创建mapper配置文件
-	 * @param   对象参数：url、BasisInfo
-	 * @return  JsonResult
-	 * @author  BianP
-	 */
+	//③创建mapper配置文件
 	public static JsonResult createDaoImpl(String url,BasisInfo bi) {
 		String fileUrl= EntityInfoUtil.getGeneratorFileUrl(url, bi.getMapperUrl(), bi.getEntityName(), DAO_IMPL);
 		List<PropertyInfo> list=bi.getCis();
@@ -55,34 +41,19 @@ public class Generator {
 		return FreemarkerUtil.createFile(bi, "mapper.ftl", fileUrl);
 	}
 	
-	/**
-	 * @explain ④创建SERVICE
-	 * @param   对象参数：url、BasisInfo
-	 * @return  JsonResult
-	 * @author  BianP
-	 */
+	//④创建SERVICE
 	public static JsonResult createService(String url,BasisInfo bi) {
 		String fileUrl= EntityInfoUtil.getGeneratorFileUrl(url, bi.getServiceUrl(), bi.getEntityName(), SERVICE);
 		return FreemarkerUtil.createFile(bi, "service.ftl", fileUrl);
 	}
 	
-	/**
-	 * @explain ⑤创建SERVICE_IMPL
-	 * @param   对象参数：url、BasisInfo
-	 * @return  JsonResult
-	 * @author  BianP
-	 */
+	//⑤创建SERVICE_IMPL
 	public static JsonResult createServiceImpl(String url,BasisInfo bi) {
 		String fileUrl= EntityInfoUtil.getGeneratorFileUrl(url, bi.getServiceImplUrl(), bi.getEntityName(), SERVICE_IMPL);
 		return FreemarkerUtil.createFile(bi, "serviceImpl.ftl", fileUrl);
 	}
 	
-	/**
-	 * @explain ⑥创建CONTROLLER
-	 * @param   对象参数：url、BasisInfo
-	 * @return  JsonResult
-	 * @author  BianP
-	 */
+	//⑥创建CONTROLLER
 	public static JsonResult createController(String url,BasisInfo bi) {
 		String fileUrl= EntityInfoUtil.getGeneratorFileUrl(url, bi.getControllerUrl(), bi.getEntityName(), CONTROLLER);
 		return FreemarkerUtil.createFile(bi, "controller.ftl", fileUrl);

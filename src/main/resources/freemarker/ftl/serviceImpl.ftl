@@ -71,3 +71,4 @@ public class ${entityName}ServiceImpl implements ${entityName}Service {
 		PageInfo<${entityName}> pageInfo = new PageInfo<${entityName}>(list);
 		return pageInfo;
 	}
+}
