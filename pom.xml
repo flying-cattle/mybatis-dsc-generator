@@ -5,12 +5,32 @@
 
 	<groupId>com.github</groupId>
 	<artifactId>mybatis-dsc-generator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0.RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>mybatis-dsc-generator</name>
-	<description>Demo project for Spring Boot</description>
-
+	<description>According to the database, three layers of code are generated automatically.</description>
+	<url>https://github.com/flying-cattle/mybatis-dsc-generator</url>
+	<!-- 证书 -->
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<!-- 作者信息 -->
+	<developers>
+		<developer>
+			<name>flying-cattle</name>
+			<email>695429818@qq.com</email>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git@github.com:flying-cattle/mybatis-dsc-generator.git</connection>
+		<developerConnection>scm:git:git@github.com:flying-cattle/mybatis-dsc-generator.git</developerConnection>
+		<url>git@github.com:flying-cattle/mybatis-dsc-generator.git</url>
+	</scm>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -20,7 +40,12 @@
 		<slf4j-api.version>1.7.25</slf4j-api.version>
 		<lombok.version>1.16.20</lombok.version>
 		<freemarker.version>2.3.9</freemarker.version>
-
+		<!-- 打包跳过单元测试 -->
+        <skipTests>true</skipTests>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -52,4 +77,93 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
+	
+	<distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/src/main/resources</directory>
+                        <targetPath>META-INF/resources/</targetPath>
+                    </resource>
+                </resources>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>META-INF/resources/</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- java编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
