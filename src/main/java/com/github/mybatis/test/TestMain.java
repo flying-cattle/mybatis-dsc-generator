@@ -42,18 +42,18 @@ public class TestMain {
 		try {
 			bi=EntityInfoUtil.getInfo(bi);
 			String aa1=Generator.createEntity("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
-			String aa2=Generator.createDao("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
+			/*String aa2=Generator.createDao("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
 			String aa3=Generator.createDaoImpl("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
 			String aa4=Generator.createService("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
 			String aa5=Generator.createServiceImpl("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
-			String aa6=Generator.createController("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();
+			String aa6=Generator.createController("E:\\test_workspace\\mybatis-generator\\src\\main\\java\\", bi).toString();*/
 			
 			System.out.println(aa1);
-			System.out.println(aa2);
+			/*System.out.println(aa2);
 			System.out.println(aa3);
 			System.out.println(aa4);
 			System.out.println(aa5);
-			System.out.println(aa6);
+			System.out.println(aa6);*/
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
