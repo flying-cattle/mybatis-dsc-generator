@@ -67,5 +67,5 @@ public interface ${entityName}Service {
 	 * @return  PageInfo<${entityName}>
 	 * @author  ${author}
 	 */
-	public PageInfo<${entityName}> getUserBySearch(AppPage<User> page);
+	public PageInfo<${entityName}> get${entityName}BySearch(AppPage<${entityName}> page);
 }
