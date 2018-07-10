@@ -36,6 +36,9 @@ CREATE TABLE `order` (
 要求必须有表注释，要求必须有主键为id,切为bigint，所有字段必须有注释（便于生成java注释）。
 
 # 生成的实体类
+生成方法参考源码中的：https://github.com/flying-cattle/mybatis-dsc-generator/blob/master/src/main/java/com/github/mybatis/test/TestMain.java
+
+# 生成的实体类
 ``` java
 /**
  * @filename:Order 2018年7月5日
