@@ -736,4 +736,4 @@ public class OrderController {
 }
 ```
 
-看到这里，大家应该能开出，这个代码生成只适合一些特定的项目，首先是springboot，其次是使用的mybatis和pagehelper，并使用了swagger与lombok。
+看到这里，大家应该能看出，这个代码生成只适合一些特定的项目，首先是springboot，其次是使用的mybatis和pagehelper，并使用了swagger与lombok。
