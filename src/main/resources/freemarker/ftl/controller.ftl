@@ -56,8 +56,8 @@ public class ${entityName}Controller {
 	@GetMapping("/get${entityName}ById/{id}")
 	@ApiOperation(value = "获取${entityComment}信息", notes = "获取${entityComment}信息[${objectName}]，作者：${author}")
 	@ApiImplicitParam(paramType="path", name = "id", value = "${entityComment}id", required = true, dataType = "Long")
-	public JsonResult get${entityName}ById(@PathVariable("id")Long id){
-		JsonResult result=new JsonResult();
+	public JsonResult<${entityName}> get${entityName}ById(@PathVariable("id")Long id){
+		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			${entityName} ${objectName}=${objectName}ServiceImpl.selectByPrimaryKey(id);
 			if (${objectName}!=null) {
@@ -86,8 +86,8 @@ public class ${entityName}Controller {
 	 */
 	@PostMapping("/insertSelective")
 	@ApiOperation(value = "添加${entityComment}", notes = "添加${entityComment}[${objectName}],作者：${author}")
-	public JsonResult insertSelective(${entityName} ${objectName}){
-		JsonResult result=new JsonResult();
+	public JsonResult<${entityName}> insertSelective(${entityName} ${objectName}){
+		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			int rg=${objectName}ServiceImpl.insertSelective(${objectName});
 			if (rg>0) {
@@ -147,8 +147,8 @@ public class ${entityName}Controller {
 	 */
 	@ApiOperation(value = "修改${entityComment}", notes = "修改${entityComment}[${objectName}],作者：${author}")
 	@PostMapping("/updateByPrimaryKeySelective")
-	public JsonResult updateByPrimaryKeySelective(${entityName} ${objectName}){
-		JsonResult result=new JsonResult();
+	public JsonResult<${entityName}> updateByPrimaryKeySelective(${entityName} ${objectName}){
+		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			int reg = ${objectName}ServiceImpl.updateByPrimaryKeySelective(${objectName});
 			if (reg>0) {
@@ -177,8 +177,8 @@ public class ${entityName}Controller {
 	 */
 	@ApiOperation(value = "条件查询${entityComment}", notes = "条件查询[${objectName}],作者：${author}")
 	@PostMapping("/query${entityName}List")
-	public JsonResult query${entityName}List(${entityName} ${objectName}){
-		JsonResult result=new JsonResult();
+	public JsonResult<${entityName}> query${entityName}List(${entityName} ${objectName}){
+		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			List<${entityName}> list = ${objectName}ServiceImpl.query${entityName}List(${objectName});
 			result.setCode(1);
@@ -205,8 +205,8 @@ public class ${entityName}Controller {
         @ApiImplicitParam(paramType="query", name = "pageNum", value = "当前页", required = true, dataType = "int"),
         @ApiImplicitParam(paramType="query", name = "pageSize", value = "页行数", required = true, dataType = "int")
     })
-	public JsonResult get${entityName}BySearch(Integer pageNum,Integer pageSize){
-		JsonResult result=new JsonResult();
+	public JsonResult<${entityName}> get${entityName}BySearch(Integer pageNum,Integer pageSize){
+		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		AppPage<${entityName}> page =new AppPage<${entityName}>();
 		page.setPageNum(pageNum);
 		page.setPageSize(pageSize);
