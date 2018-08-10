@@ -27,7 +27,7 @@ public interface ${entityName}Service {
 	 * @return  ${entityName}
 	 * @author  ${author}
 	 */
-	public ${entityName} selectByPrimaryKey(Long id);
+	public ${entityName} selectByPrimaryKey(${idType} id);
 	
 	/**
 	 * @explain 删除${entityComment}对象
@@ -35,7 +35,7 @@ public interface ${entityName}Service {
 	 * @return  int
 	 * @author  ${author}
 	 */
-	public int deleteByPrimaryKey(Long id);
+	public int deleteByPrimaryKey(${idType} id);
 	
 	/**
 	 * @explain 添加${entityComment}对象

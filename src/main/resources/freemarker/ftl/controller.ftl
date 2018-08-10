@@ -55,8 +55,8 @@ public class ${entityName}Controller {
 	 */
 	@GetMapping("/get${entityName}ById/{id}")
 	@ApiOperation(value = "获取${entityComment}信息", notes = "获取${entityComment}信息[${objectName}]，作者：${author}")
-	@ApiImplicitParam(paramType="path", name = "id", value = "${entityComment}id", required = true, dataType = "Long")
-	public JsonResult<${entityName}> get${entityName}ById(@PathVariable("id")Long id){
+	@ApiImplicitParam(paramType="path", name = "id", value = "${entityComment}id", required = true, dataType = "${idType}")
+	public JsonResult<${entityName}> get${entityName}ById(@PathVariable("id")${idType} id){
 		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			${entityName} ${objectName}=${objectName}ServiceImpl.selectByPrimaryKey(id);
@@ -116,9 +116,9 @@ public class ${entityName}Controller {
 	 */
 	@PostMapping("/deleteByPrimaryKey")
 	@ApiOperation(value = "删除${entityComment}", notes = "删除${entityComment},作者：${author}")
-	@ApiImplicitParam(paramType="query", name = "id", value = "${entityComment}id", required = true, dataType = "Long")
-	public JsonResult deleteByPrimaryKey(Long id){
-		JsonResult result=new JsonResult();
+	@ApiImplicitParam(paramType="query", name = "id", value = "${entityComment}id", required = true, dataType = "${idType}")
+	public JsonResult<Object> deleteByPrimaryKey(${idType} id){
+		JsonResult<Object> result=new JsonResult<Object>();
 		try {
 			int reg=${objectName}ServiceImpl.deleteByPrimaryKey(id);
 			if (reg>0) {
@@ -177,8 +177,8 @@ public class ${entityName}Controller {
 	 */
 	@ApiOperation(value = "条件查询${entityComment}", notes = "条件查询[${objectName}],作者：${author}")
 	@PostMapping("/query${entityName}List")
-	public JsonResult<${entityName}> query${entityName}List(${entityName} ${objectName}){
-		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
+	public JsonResult<List<${entityName}>> query${entityName}List(${entityName} ${objectName}){
+		JsonResult<List<${entityName}>> result=new JsonResult<List<${entityName}>>();
 		try {
 			List<${entityName}> list = ${objectName}ServiceImpl.query${entityName}List(${objectName});
 			result.setCode(1);
@@ -205,8 +205,8 @@ public class ${entityName}Controller {
         @ApiImplicitParam(paramType="query", name = "pageNum", value = "当前页", required = true, dataType = "int"),
         @ApiImplicitParam(paramType="query", name = "pageSize", value = "页行数", required = true, dataType = "int")
     })
-	public JsonResult<${entityName}> get${entityName}BySearch(Integer pageNum,Integer pageSize){
-		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
+	public JsonResult<PageInfo<${entityName}>> get${entityName}BySearch(Integer pageNum,Integer pageSize){
+		JsonResult<PageInfo<${entityName}>> result=new JsonResult<PageInfo<${entityName}>>();
 		AppPage<${entityName}> page =new AppPage<${entityName}>();
 		page.setPageNum(pageNum);
 		page.setPageSize(pageSize);

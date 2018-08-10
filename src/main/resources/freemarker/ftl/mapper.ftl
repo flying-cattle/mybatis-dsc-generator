@@ -10,21 +10,21 @@
 	${agile}
 	</sql>
 	<!-- 查询 -->
-	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+	<select id="selectByPrimaryKey" parameterType="java.lang.${idType}"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from ${table}
-		where id = ${r'#{id,jdbcType=BIGINT}'}
+		where id = ${r'#{'}id,jdbcType=${idJdbcType?upper_case}}
 	</select>
 	<!-- 删除 -->
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.${idType}">
 		delete from ${table}
-		where id = ${r'#{id,jdbcType=BIGINT}'}
+		where id = ${r'#{'}id,jdbcType=${idJdbcType?upper_case}}
 	</delete>
 	<!-- 选择添加 -->
 	<insert id="insertSelective" parameterType="${entityUrl}.${entityName}">
-		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.${idType}">
 			SELECT
 			LAST_INSERT_ID()
 		</selectKey>
@@ -54,7 +54,7 @@
 			</if>
 			</#list>
 		</set>
-		where id = ${r'#{id,jdbcType=BIGINT}'}
+		where id = ${r'#{'}id,jdbcType=${idJdbcType}}
 	</update>
 	<!-- 组合条件查询 -->
 	<select id="query${entityName}List" parameterType="${entityUrl}.${entityName}"
@@ -64,7 +64,7 @@
 		from ${table}
 		<where>
 			<if test="id != null">
-				id = ${r'#{'}id,jdbcType=BIGINT}
+				id = ${r'#{'}id,jdbcType=${idJdbcType?upper_case}}
 			</if>
 			<#list cis as ci>
 			<#if ci.column!="id">

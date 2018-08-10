@@ -34,13 +34,13 @@ public class ${entityName}ServiceImpl implements ${entityName}Service {
 	
 	//查询对象
 	@Override
-	public ${entityName} selectByPrimaryKey(Long id) {
+	public ${entityName} selectByPrimaryKey(${idType} id) {
 		return ${objectName}Dao.selectByPrimaryKey(id);
 	}
 	
 	//删除对象
 	@Override
-	public int deleteByPrimaryKey(Long id) {
+	public int deleteByPrimaryKey(${idType} id) {
 		return ${objectName}Dao.deleteByPrimaryKey(id);
 	}
 	

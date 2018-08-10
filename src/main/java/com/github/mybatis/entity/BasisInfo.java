@@ -51,6 +51,10 @@ public class BasisInfo implements Serializable{
 	
 	private String controllerUrl;
 	
+	private String idType;
+	
+	private String idJdbcType;
+	
 	private List<PropertyInfo> cis;
 	
 	public BasisInfo(String project, String author, String version, String dbUrl, String dbName, String dbPassword,

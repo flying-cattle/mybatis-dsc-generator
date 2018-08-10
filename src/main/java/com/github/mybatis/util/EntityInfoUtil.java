@@ -29,19 +29,27 @@ public class EntityInfoUtil {
 				String comment = executeQuery.getString(3);
 				PropertyInfo ci=new PropertyInfo();
 				ci.setColumn(column);
-				if (jdbcType.equals("int")) {
+				if (jdbcType.equalsIgnoreCase("int")) {
 					ci.setJdbcType("Integer");
+				}else if (jdbcType.equalsIgnoreCase("datetime")) {
+					ci.setJdbcType("timestamp");
 				}else {
 					ci.setJdbcType(jdbcType);
 				}
 				ci.setComment(comment);
 				ci.setProperty(MySqlToJavaUtil.changeToJavaFiled(column));
 				ci.setJavaType(MySqlToJavaUtil.jdbcTypeToJavaType(jdbcType));
+				//设置注解类型
+				if (column.equalsIgnoreCase("id")) {
+					bi.setIdType(ci.getJavaType());
+					bi.setIdJdbcType(ci.getJdbcType());
+				}
 				columns.add(ci);
 			}
 			bi.setCis(columns);
 			return bi;
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new RuntimeException("自动生成实体类错误："+e.getMessage());
 		} finally {
 			pstemt.close();

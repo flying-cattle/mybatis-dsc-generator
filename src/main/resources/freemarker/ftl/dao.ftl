@@ -21,9 +21,9 @@ import ${entityUrl}.${entityName};
 @Mapper
 public interface ${entityName}Dao {
 	
-	public ${entityName} selectByPrimaryKey(Long id);
+	public ${entityName} selectByPrimaryKey(${idType} id);
 	
-	public int deleteByPrimaryKey(Long id);
+	public int deleteByPrimaryKey(${idType} id);
 	
 	public int insertSelective(${entityName} ${objectName});
 	
