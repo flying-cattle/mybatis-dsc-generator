@@ -11,7 +11,7 @@
 <dependency>
     <groupId>com.github.flying-cattle</groupId>
     <artifactId>mybatis-dsc-generator</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>2.0.0.RELEASE</version>
 </dependency>
 ```
 
