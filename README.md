@@ -1,5 +1,5 @@
 # mybatis-dsc-generato
-集成最全的代码生成工具：entity集成lombok，格式校验，swagger; dao自动加@ mapper，service自动注释和依赖; 控制器实现单表的增副改查，并集成swagger实现api文档。
+集成最全的代码生成工具：entity集成lombok，格式校验，swagger; dao自动加@ mapper，service自动注释和依赖; 控制器实现单表的增副改查，并集成swagger实现api文档。如果有缘看见，期望得到你的star，very thx.
 # 源码地址
 - GitHub:https://github.com/flying-cattle/mybatis-dsc-generator
 - 码云：https://gitee.com/flying-cattle/mybatis-dsc-generator
