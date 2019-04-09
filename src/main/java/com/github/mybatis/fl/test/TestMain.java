@@ -10,27 +10,27 @@ import com.github.mybatis.fl.util.MySqlToJavaUtil;
 
 public class TestMain {
 	//基础信息
-	public static final String PROJECT="qixingbao-show";
-	public static final String AUTHOR="BianP";
+	public static final String PROJECT="user_center";
+	public static final String AUTHOR="BianPeng";
 	public static final String VERSION="V1.0";
 	//数据库连接信息
-	public static final String URL="jdbc:mysql://127.0.0.1:3306/qixingbao?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true";
+	public static final String URL="jdbc:mysql://127.0.0.1:3306/earn_knife?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true&serverTimezone=UTC";
 	public static final String NAME="root";
-	public static final String PASSWORD="123456";
-	public static final String DATABASE="qixingbao";
+	public static final String PASSWORD="pwd2020";
+	public static final String DATABASE="earn_knife";
 	//类信息
-	public static final String TABLE="product";
-	public static final String CLASSNAME="Product";
-	public static final String CLASSCOMMENT="产品";
-	public static final String TIME="2018年7月5日";
+	public static final String TABLE="user";
+	public static final String CLASSNAME="User";
+	public static final String CLASSCOMMENT="用户";
+	public static final String TIME="2019年4月9日";
 	public static final String AGILE=new Date().getTime()+"";
 	//路径信息
-	public static final String ENTITY_URL="com.qixingbao.show.entity";
-	public static final String DAO_URL="com.qixingbao.show.dao";
-	public static final String XML_URL="com.qixingbao.show.dao.impl";
-	public static final String SERVICE_URL="com.qixingbao.show.service";
-	public static final String SERVICE_IMPL_URL="com.qixingbao.show.service.impl";
-	public static final String CONTROLLER_URL="com.qixingbao.show.webApi";
+	public static final String ENTITY_URL="com.xin.usercenter.entity";
+	public static final String DAO_URL="com.xin.usercenter.dao";
+	public static final String XML_URL="com.xin.usercenter.dao.impl";
+	public static final String SERVICE_URL="com.xin.usercenter.service";
+	public static final String SERVICE_IMPL_URL="com.xin.usercenter.service.impl";
+	public static final String CONTROLLER_URL="com.xin.usercenter.webApi";
 	
 	
 	public static void main(String[] args) {
@@ -41,12 +41,12 @@ public class TestMain {
 		bi.setEntityComment(CLASSCOMMENT);
 		try {
 			bi=EntityInfoUtil.getInfo(bi);
-			String aa1=Generator.createEntity("E:\\A-ZM-work\\work_qxb2\\qxbplatform\\qixingbao-show\\src\\main\\java\\", bi).toString();
-			String aa2=Generator.createDao("E:\\A-ZM-work\\work_qxb2\\qxbplatform\\qixingbao-show\\src\\main\\java\\", bi).toString();
-			String aa3=Generator.createDaoImpl("E:\\A-ZM-work\\work_qxb2\\qxbplatform\\qixingbao-show\\src\\main\\java\\", bi).toString();
-			String aa4=Generator.createService("E:\\A-ZM-work\\work_qxb2\\qxbplatform\\qixingbao-show\\src\\main\\java\\", bi).toString();
-			String aa5=Generator.createServiceImpl("E:\\A-ZM-work\\work_qxb2\\qxbplatform\\qixingbao-show\\src\\main\\java\\", bi).toString();
-			String aa6=Generator.createController("E:\\A-ZM-work\\work_qxb2\\qxbplatform\\qixingbao-show\\src\\main\\java\\", bi).toString();
+			String aa1=Generator.createEntity("E:\\b_test_work\\", bi).toString();
+			String aa2=Generator.createDao("E:\\b_test_work\\", bi).toString();
+			String aa3=Generator.createDaoImpl("E:\\b_test_work\\", bi).toString();
+			String aa4=Generator.createService("E:\\b_test_work\\", bi).toString();
+			String aa5=Generator.createServiceImpl("E:\\b_test_work\\", bi).toString();
+			String aa6=Generator.createController("E:\\b_test_work\\", bi).toString();
 			
 			System.out.println(aa1);
 			System.out.println(aa2);
