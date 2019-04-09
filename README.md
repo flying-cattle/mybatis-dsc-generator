@@ -1,6 +1,5 @@
 # mybatis-dsc-generator
-    根据完善的数据库表结构，一键生成dao.java,mapper.xml,service.java,serviceImpl.java,controller.java，完成单表的增删改查、
-    组合条件集合查询，组合条件分页查询。
+    集成最全的代码生成工具：entity集成lombok、格式校验，swagger；dao自动加@mapper，service自动注释和依赖；Controller实现restful 增删改查API，并集成swagger。
 
 # 源码地址
 - GitHub:https://github.com/flying-cattle/mybatis-dsc-generator
