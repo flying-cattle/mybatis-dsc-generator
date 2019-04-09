@@ -10,17 +10,15 @@ package com.github.mybatis.fl.convert;
 /**   
 * Copyright: Copyright (c) 2019 
 * 
-* @ClassName: DbColumnType.java
-* @Description: 表字段类型
-*
-* @version: v1.0.0
+* <p>说明：表字段类型</p>
+* @version: v2.1.0
 * @author: flying-cattle
 * @date: 2019年4月9日 下午8:15:25 
 *
 * Modification History:
 * Date         		Author          Version          Description
 *---------------------------------------------------------------*
-* 2019年4月9日      		flying-cattle   v1.0.0           initialize
+* 2019年4月9日      		flying-cattle   v2.1.0           initialize
 */
 public enum DbColumnType implements IColumnType {
     // 基本类型
@@ -66,12 +64,12 @@ public enum DbColumnType implements IColumnType {
     BIG_DECIMAL("BigDecimal", "java.math.BigDecimal");
 
     /**
-     * 类型
+     * <p>类型</p>
      */
     private final String type;
 
     /**
-     * 包路径
+     * <p>包路径</p>
      */
     private final String pkg;
 

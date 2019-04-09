@@ -12,12 +12,9 @@ package com.github.mybatis.fl.convert;
 /**   
 * Copyright: Copyright (c) 2019 
 * 
-* @ClassName: ITypeConvert.java
-* @Description: 该类的功能描述
-*
+* <p>说明: 该类的功能描述</p>
 * @version: v1.0.0
 * @author: flying-cattle
-* @date: 2019年4月9日 下午8:06:16 
 *
 * Modification History:
 * Date         		Author          Version          Description
@@ -26,8 +23,7 @@ package com.github.mybatis.fl.convert;
 */
 public interface ITypeConvert {
 	/**
-     * @Description: 执行类型转换
-     *
+     * <p>说明:执行类型转换</p>
      * @param globalConfig 全局配置
      * @param fieldType    字段类型
      * @return ignore

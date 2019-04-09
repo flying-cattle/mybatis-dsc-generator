@@ -1,3 +1,9 @@
+/**   
+ * Copyright © 2019 dream horse Info. Tech Ltd. All rights reserved.
+ * @Package: com.github.mybatis.fl.util
+ * @author: flying-cattle  
+ * @date: 2019年4月9日 下午8:15:25 
+ */
 package com.github.mybatis.fl.util;
 
 import java.sql.Connection;
@@ -10,7 +16,18 @@ import java.util.List;
 
 import com.github.mybatis.fl.entity.BasisInfo;
 import com.github.mybatis.fl.entity.PropertyInfo;
-
+/**   
+ * Copyright: Copyright (c) 2019 
+ * 
+ * <p>说明：  链接数据库并获取表信息</P>
+ * @version: v2.1.0
+ * @author: flying-cattle
+ * 
+ * Modification History:
+ * Date         	Author          Version          Description
+ *---------------------------------------------------------------*
+ * 2019年4月9日      		flying-cattle   v2.1.0           initialize
+ */
 public class EntityInfoUtil {
 	public static BasisInfo getInfo(BasisInfo bi) throws SQLException {
 		List<PropertyInfo> columns= new ArrayList<PropertyInfo>();
@@ -55,26 +72,5 @@ public class EntityInfoUtil {
 			pstemt.close();
 			con.close();
 		}
-	}
-	
-	public static String getGeneratorFileUrl(String url,String packageUrl,String entityName, String type){
-		if (type.equals("entity")) {
-			return url+pageToUrl(packageUrl)+entityName+".java";
-		}else if(type.equals("dao")) {
-			return url+pageToUrl(packageUrl)+entityName+"Dao.java";
-		}else if(type.equals("daoImpl")) {
-			return url+pageToUrl(packageUrl)+entityName+"Mapper.xml";
-		}else if(type.equals("service")) {
-			return url+pageToUrl(packageUrl)+entityName+"Service.java";
-		}else if(type.equals("serviceImpl")) {
-			return url+pageToUrl(packageUrl)+entityName+"ServiceImpl.java";
-		}else if(type.equals("controller")) {
-			return url+pageToUrl(packageUrl)+entityName+"Controller.java";
-		}
-		return null;
-	}
-	
-	public static String pageToUrl(String url) {
-		return url.replace(".", "/")+"/";
 	}
 }

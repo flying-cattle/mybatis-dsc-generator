@@ -9,20 +9,17 @@ package com.github.mybatis.fl.convert;
 
 import com.github.mybatis.fl.convert.ITypeConvert;
 /**   
-* Copyright: Copyright (c) 2019 
-* 
-* @ClassName: MySqlTypeConvert.java
-* @Description: MYSQL 数据库字段类型转换
-*
-* @version: v1.0.0
-* @author: flying-cattle
-* @date: 2019年4月9日 下午8:13:13 
-*
-* Modification History:
-* Date         		Author          Version          Description
-*---------------------------------------------------------------*
-* 2019年4月9日      		flying-cattle   v2.0.1           initialize
-*/
+ * Copyright: Copyright (c) 2019 
+ * 
+ * <p>说明：MYSQL 数据库字段类型转换</p>
+ * @version: v1.0.0
+ * @author: flying-cattle
+ *
+ * Modification History:
+ * Date         		Author        Version          Description
+ *---------------------------------------------------------------*
+ * 2019年4月9日      		flying-cattle     v2.0.1           initialize
+ */
 public class MySqlTypeConvert  implements ITypeConvert {
 
     @Override

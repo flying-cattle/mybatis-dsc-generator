@@ -1,3 +1,9 @@
+/**   
+ * Copyright © 2019 dream horse Info. Tech Ltd. All rights reserved.
+ * @Package: com.github.mybatis.fl.convert
+ * @author: flying-cattle  
+ * @date: 2019年4月9日 下午8:15:25 
+ */
 package com.github.mybatis.fl.util;
 
 import java.io.File;
@@ -10,6 +16,18 @@ import com.github.mybatis.fl.entity.JsonResult;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+/**   
+ * Copyright: Copyright (c) 2019 
+ * 
+ * <p>说明：  创建文件</P>
+ * @version: v2.1.0
+ * @author: flying-cattle
+ * 
+ * Modification History:
+ * Date         	Author          Version          Description
+ *---------------------------------------------------------------*
+ * 2019年4月9日      		flying-cattle   v2.1.0           initialize
+ */
 public class FreemarkerUtil {
 	 
 	public static JsonResult createFile(BasisInfo dataModel, String templateName, String filePath) {
@@ -18,7 +36,7 @@ public class FreemarkerUtil {
 		String fileName=dataModel.getEntityName()+messageStr(templateName);
 		try {
 			// 通过FreeMarker的Confuguration读取相应的模板文件
-	        Configuration configuration = new Configuration();
+	        Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
 	        // 设置模板路径
 	        configuration.setClassForTemplateLoading(FreemarkerUtil.class, "/freemarker/ftl");
 	        // 设置默认字体
