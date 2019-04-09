@@ -23,7 +23,9 @@ import com.github.mybatis.fl.convert.MySqlTypeConvert;
 public class MySqlToJavaUtil {
 	
 	/**
-     * <p>获取java类名</p>
+     * <p>说明:获取java类名</p>
+     * @param table  表名
+     * @return String
      */
 	public static String getClassName(String table) {
 		table=changeToJavaFiled(table);
@@ -35,7 +37,9 @@ public class MySqlToJavaUtil {
 	}
 	
 	/**
-     * <p>获取字段名，把"_"后面字母变大写</p>
+     * <p>说明:获取字段名，把"_"后面字母变大写</p>
+     * @param field  字段名
+     * @return String
      */
 	public static String changeToJavaFiled(String field) {
 		String[] fields = field.split("_");
@@ -48,8 +52,11 @@ public class MySqlToJavaUtil {
 		return sbuilder.toString();
 	}
 	
+
 	/**
-     * <p>把sql的数据类型转为java需要的类型</p>
+     * <p>说明:把sql的数据类型转为java需要的类型</p>
+     * @param sqlType  sql类型
+     * @return String  java类型
      */
 	public static String jdbcTypeToJavaType(String sqlType) {
 		MySqlTypeConvert typeConvert= new MySqlTypeConvert();

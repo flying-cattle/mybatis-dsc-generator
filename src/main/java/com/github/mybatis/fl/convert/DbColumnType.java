@@ -13,7 +13,6 @@ package com.github.mybatis.fl.convert;
 * <p>说明：表字段类型</p>
 * @version: v2.1.0
 * @author: flying-cattle
-* @date: 2019年4月9日 下午8:15:25 
 *
 * Modification History:
 * Date         		Author          Version          Description
