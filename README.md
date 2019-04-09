@@ -68,7 +68,6 @@ import lombok.AllArgsConstructor;
  *    
  */
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order implements Serializable {
