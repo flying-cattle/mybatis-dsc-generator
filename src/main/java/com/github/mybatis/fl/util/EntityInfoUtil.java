@@ -1,4 +1,4 @@
-package com.github.mybatis.util;
+package com.github.mybatis.fl.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.mybatis.entity.BasisInfo;
-import com.github.mybatis.entity.PropertyInfo;
+import com.github.mybatis.fl.entity.BasisInfo;
+import com.github.mybatis.fl.entity.PropertyInfo;
 
 public class EntityInfoUtil {
 	public static BasisInfo getInfo(BasisInfo bi) throws SQLException {

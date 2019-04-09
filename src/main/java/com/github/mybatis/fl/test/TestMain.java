@@ -1,12 +1,12 @@
-package com.github.mybatis.test;
+package com.github.mybatis.fl.test;
 
 import java.sql.SQLException;
 import java.util.Date;
 
-import com.github.mybatis.entity.BasisInfo;
-import com.github.mybatis.util.EntityInfoUtil;
-import com.github.mybatis.util.Generator;
-import com.github.mybatis.util.MySqlToJavaUtil;
+import com.github.mybatis.fl.entity.BasisInfo;
+import com.github.mybatis.fl.util.EntityInfoUtil;
+import com.github.mybatis.fl.util.Generator;
+import com.github.mybatis.fl.util.MySqlToJavaUtil;
 
 public class TestMain {
 	//基础信息

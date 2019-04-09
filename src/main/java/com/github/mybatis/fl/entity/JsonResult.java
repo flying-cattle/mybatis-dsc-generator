@@ -1,14 +1,12 @@
-package com.github.mybatis.entity;
+package com.github.mybatis.fl.entity;
 
 import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class JsonResult implements Serializable{

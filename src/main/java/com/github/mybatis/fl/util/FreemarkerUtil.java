@@ -1,10 +1,11 @@
-package com.github.mybatis.util;
+package com.github.mybatis.fl.util;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import com.github.mybatis.entity.BasisInfo;
-import com.github.mybatis.entity.JsonResult;
+
+import com.github.mybatis.fl.entity.BasisInfo;
+import com.github.mybatis.fl.entity.JsonResult;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

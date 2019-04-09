@@ -1,4 +1,4 @@
-package com.github.mybatis.entity;
+package com.github.mybatis.fl.entity;
 
 import java.io.Serializable;
 import lombok.AllArgsConstructor;

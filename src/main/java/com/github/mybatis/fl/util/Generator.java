@@ -1,10 +1,10 @@
-package com.github.mybatis.util;
+package com.github.mybatis.fl.util;
 
 import java.util.List;
 
-import com.github.mybatis.entity.BasisInfo;
-import com.github.mybatis.entity.JsonResult;
-import com.github.mybatis.entity.PropertyInfo;
+import com.github.mybatis.fl.entity.BasisInfo;
+import com.github.mybatis.fl.entity.JsonResult;
+import com.github.mybatis.fl.entity.PropertyInfo;
 
 public class Generator {
 	//路径信息

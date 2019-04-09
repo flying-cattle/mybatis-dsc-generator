@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
@@ -26,7 +25,6 @@ import lombok.AllArgsConstructor;
  *    
  */
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class ${entityName} implements Serializable {
