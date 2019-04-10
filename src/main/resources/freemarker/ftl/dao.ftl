@@ -7,28 +7,24 @@
 package ${daoUrl};
 
 import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import ${entityUrl}.${entityName};
 
 /**   
- *  
- * @Description:  ${entityComment}——DAO
- * @Author:       ${author}   
- * @CreateDate:   ${createTime}
- * @Version:      ${version}
- *    
+ * Copyright: Copyright (c) 2019 
+ * 
+ * <p>说明： ${entityComment}数据访问层</P>
+ * @version: ${version}
+ * @author: ${author}
+ * 
+ * Modification History:
+ * Date         	Author          Version          Description
+ *---------------------------------------------------------------*
+ * ${createTime}      ${author}    ${version}         initialize
  */
 @Mapper
-public interface ${entityName}Dao {
+public interface ${entityName}Dao extends BaseMapper<${entityName}> {
 	
-	public ${entityName} selectByPrimaryKey(${idType} id);
-	
-	public int deleteByPrimaryKey(${idType} id);
-	
-	public int insertSelective(${entityName} ${objectName});
-	
-	public int updateByPrimaryKeySelective(${entityName} ${objectName});
-	
-	public List<${entityName}> query${entityName}List(${entityName} ${objectName});
 }
 	
