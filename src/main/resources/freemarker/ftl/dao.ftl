@@ -6,7 +6,6 @@
  */
 package ${daoUrl};
 
-import java.util.List;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import ${entityUrl}.${entityName};
