@@ -16,13 +16,13 @@ import lombok.NoArgsConstructor;
  * Copyright: Copyright (c) 2019 
  * 
  * <p>说明： 获取到数据库的信息</P>
- * @version: v2.1.0
+ * @version: v3.0.0
  * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version          Description
  *---------------------------------------------------------------*
- * 2019年4月9日      		flying-cattle   v2.1.0           initialize
+ * 2019年4月9日      		flying-cattle   v3.0.0           initialize
  */
 @Data
 @AllArgsConstructor

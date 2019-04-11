@@ -13,13 +13,13 @@ package com.github.mybatis.fl.convert;
 * Copyright: Copyright (c) 2019 
 * 
 * <p>说明: 该类的功能描述</p>
-* @version: v1.0.0
+* @version: v3.0.0
 * @author: flying-cattle
 *
 * Modification History:
 * Date         		Author          Version          Description
 *---------------------------------------------------------------*
-* 2019年4月9日      		flying-cattle        v2.0.1           initialize
+* 2019年4月9日      		flying-cattle   v3.0.0           initialize
 */
 public interface ITypeConvert {
 	/**

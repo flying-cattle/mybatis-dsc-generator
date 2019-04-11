@@ -11,13 +11,13 @@ package com.github.mybatis.fl.convert;
 * Copyright: Copyright (c) 2019 
 * 
 * <p>说明：表字段类型</p>
-* @version: v2.1.0
+* @version: v3.0.0
 * @author: flying-cattle
 *
 * Modification History:
 * Date         		Author          Version          Description
 *---------------------------------------------------------------*
-* 2019年4月9日      		flying-cattle   v2.1.0           initialize
+* 2019年4月9日      		flying-cattle   v3.0.0           initialize
 */
 public enum DbColumnType implements IColumnType {
     // 基本类型

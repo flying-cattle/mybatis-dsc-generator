@@ -16,13 +16,13 @@ import com.github.mybatis.fl.entity.PropertyInfo;
  * Copyright: Copyright (c) 2019 
  * 
  * <p>说明：  获取文件路径调用创建文件</P>
- * @version: v2.1.0
+ * @version: v3.0.0
  * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version          Description
  *---------------------------------------------------------------*
- * 2019年4月9日      		flying-cattle   v2.1.0           initialize
+ * 2019年4月9日      		flying-cattle   v3.0.0           initialize
  */
 public class Generator {
 	//路径信息
