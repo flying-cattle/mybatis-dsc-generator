@@ -30,7 +30,7 @@ public class TestMain {
 	public static final String CLASSCOMMENT="用户";
 	public static final String TIME="2019年4月9日";
 	public static final String AGILE=new Date().getTime()+"";
-	//路径信息
+	//路径信息，分开路径方便聚合工程项目，微服务项目
 	public static final String ENTITY_URL="com.xin.usercenter.entity";
 	public static final String DAO_URL="com.xin.usercenter.dao";
 	public static final String XML_URL="com.xin.usercenter.dao.impl";
