@@ -96,38 +96,38 @@ public class User extends Model<User> {
     @ApiModelProperty(name = "password" , value = "登录密码")
     private String password;
 
-	@ApiModelProperty(name = "nickname" , value = "用户昵称")
+    @ApiModelProperty(name = "nickname" , value = "用户昵称")
     private String nickname;
 
-	@ApiModelProperty(name = "type" , value = "用户类型")
+    @ApiModelProperty(name = "type" , value = "用户类型")
     private Integer type;
 
-	@ApiModelProperty(name = "state" , value = "用户状态")
+    @ApiModelProperty(name = "state" , value = "用户状态")
     private Integer state;
 
-	@ApiModelProperty(name = "note" , value = "备注")
+    @ApiModelProperty(name = "note" , value = "备注")
     private String note;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-	@ApiModelProperty(name = "createTime" , value = "用户创建时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @ApiModelProperty(name = "createTime" , value = "用户创建时间")
     private Date createTime;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-	@ApiModelProperty(name = "updateTime" , value = "修改时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @ApiModelProperty(name = "updateTime" , value = "修改时间")
     private Date updateTime;
 	
-	@ApiModelProperty(name = "updateUid" , value = "修改人用户ID")
+    @ApiModelProperty(name = "updateUid" , value = "修改人用户ID")
     private Long updateUid;
 
-	@ApiModelProperty(name = "loginIp" , value = "登录IP")
+    @ApiModelProperty(name = "loginIp" , value = "登录IP")
     private String loginIp;
 
-	@ApiModelProperty(name = "loginIp" , value = "登录地址")
+    @ApiModelProperty(name = "loginIp" , value = "登录地址")
     private String loginAddr;
 	
-	@Override
+    @Override
     protected Serializable pkVal() {
         return this.id;
     }
@@ -265,98 +265,97 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequestMapping("/user")
 public class UserController {
 
-	Logger logger = LoggerFactory.getLogger(this.getClass());
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@Autowired
-	public UserService userServiceImpl;
+    @Autowired
+    public UserService userServiceImpl;
 	
-	/**
-	 * @explain 查询用户对象  <swagger GET请求>
-	 * @param   对象参数：id
-	 * @return  user
-	 * @author  BianPeng
-	 * @time    2019年4月9日
-	 */
-	@GetMapping("/getUserById/{id}")
-	@ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：BianPeng")
-	@ApiImplicitParam(paramType="path", name = "id", value = "用户id", required = true, dataType = "Long")
-	public JsonResult<User> getUserById(@PathVariable("id")Long id){
-		JsonResult<User> result=new JsonResult<User>();
-		try {
-			User user=userServiceImpl.getById(id);
-			if (user!=null) {
-				result.setType("success");
-				result.setMessage("成功");
-				result.setData(user);
-			} else {
-				logger.error("获取用户失败ID："+id);
-				result.setType("fail");
-				result.setMessage("你获取的用户不存在");
-			}
-		} catch (Exception e) {
-			logger.error("获取用户执行异常："+e.getMessage());
-			result=new JsonResult<User>(e);
-		}
-		return result;
-	}
+    /**
+    * @explain 查询用户对象  <swagger GET请求>
+    * @param   对象参数：id
+    * @return  user
+    * @author  BianPeng
+    * @time    2019年4月9日
+    */
+    @GetMapping("/getUserById/{id}")
+    @ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：BianPeng")
+    @ApiImplicitParam(paramType="path", name = "id", value = "用户id", required = true, dataType = "Long")
+    public JsonResult<User> getUserById(@PathVariable("id")Long id){
+    	JsonResult<User> result=new JsonResult<User>();
+    	try {
+    		User user=userServiceImpl.getById(id);
+    		if (user!=null) {
+    			result.setType("success");
+    			result.setMessage("成功");
+    			result.setData(user);
+    		} else {
+    			logger.error("获取用户失败ID："+id);
+    			result.setType("fail");
+    			result.setMessage("你获取的用户不存在");
+    		}
+    	} catch (Exception e) {
+    		logger.error("获取用户执行异常："+e.getMessage());
+    		result=new JsonResult<User>(e);
+    	}
+    	return result;
+    }
+    /**
+     * @explain 添加或者更新用户对象
+     * @param   对象参数：user
+     * @return  int
+     * @author  BianPeng
+     * @time    2019年4月9日
+     */
+    @PostMapping("/insertSelective")
+    @ApiOperation(value = "添加用户", notes = "添加用户[user],作者：BianPeng")
+    public JsonResult<User> insertSelective(User user){
+    	JsonResult<User> result=new JsonResult<User>();
+    	try {
+    		boolean rg=userServiceImpl.saveOrUpdate(user);
+    		if (rg) {
+    			result.setType("success");
+    			result.setMessage("成功");
+	    		result.setData(user);
+		    } else {
+			    logger.error("添加用户执行失败："+user.toString());
+			    result.setType("fail");
+			    result.setMessage("执行失败，请稍后重试");
+    		}
+	    } catch (Exception e) {
+	    	logger.error("添加用户执行异常："+e.getMessage());
+	    	result=new JsonResult<User>(e);
+	    }
+       return result;
+    }
 	
-	/**
-	 * @explain 添加或者更新用户对象
-	 * @param   对象参数：user
-	 * @return  int
-	 * @author  BianPeng
-	 * @time    2019年4月9日
-	 */
-	@PostMapping("/insertSelective")
-	@ApiOperation(value = "添加用户", notes = "添加用户[user],作者：BianPeng")
-	public JsonResult<User> insertSelective(User user){
-		JsonResult<User> result=new JsonResult<User>();
-		try {
-			boolean rg=userServiceImpl.saveOrUpdate(user);
-			if (rg) {
-				result.setType("success");
-				result.setMessage("成功");
-				result.setData(user);
-			} else {
-				logger.error("添加用户执行失败："+user.toString());
-				result.setType("fail");
-				result.setMessage("执行失败，请稍后重试");
-			}
-		} catch (Exception e) {
-			logger.error("添加用户执行异常："+e.getMessage());
-			result=new JsonResult<User>(e);
-		}
-		return result;
-	}
-	
-	/**
-	 * @explain 删除用户对象
-	 * @param   对象参数：id
-	 * @return  int
-	 * @author  BianPeng
-	 * @time    2019年4月9日
-	 */
-	@PostMapping("/deleteByPrimaryKey")
-	@ApiOperation(value = "删除用户", notes = "删除用户,作者：BianPeng")
-	@ApiImplicitParam(paramType="query", name = "id", value = "用户id", required = true, dataType = "Long")
-	public JsonResult<Object> deleteByPrimaryKey(Long id){
-		JsonResult<Object> result=new JsonResult<Object>();
-		try {
-			boolean reg=userServiceImpl.removeById(id);
-			if (reg) {
-				result.setType("success");
-				result.setMessage("成功");
-				result.setData(id);
-			} else {
-				logger.error("删除用户失败ID："+id);
-				result.setType("fail");
-				result.setMessage("执行错误，请稍后重试");
-			}
-		} catch (Exception e) {
-			logger.error("删除用户执行异常："+e.getMessage());
-			result=new JsonResult<Object>(e);
-		}
-		return result;
+    /**
+     * @explain 删除用户对象
+     * @param   对象参数：id
+     * @return  int
+     * @author  BianPeng
+     * @time    2019年4月9日
+     */
+    @PostMapping("/deleteByPrimaryKey")
+    @ApiOperation(value = "删除用户", notes = "删除用户,作者：BianPeng")
+    @ApiImplicitParam(paramType="query", name = "id", value = "用户id", required = true, dataType = "Long")
+    public JsonResult<Object> deleteByPrimaryKey(Long id){
+    	JsonResult<Object> result=new JsonResult<Object>();
+	    try {
+	    	boolean reg=userServiceImpl.removeById(id);
+	    	if (reg) {
+    			result.setType("success");
+    			result.setMessage("成功");
+    			result.setData(id);
+    		} else {
+    			logger.error("删除用户失败ID："+id);
+    			result.setType("fail");
+    			result.setMessage("执行错误，请稍后重试");
+    		}
+    	} catch (Exception e) {
+    		logger.error("删除用户执行异常："+e.getMessage());
+    		result=new JsonResult<Object>(e);
+    	}
+    	return result;
 	}
 	
 	/**
