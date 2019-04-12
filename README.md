@@ -1,3 +1,15 @@
+<p align="center">
+    <a target="_blank" href="https://search.maven.org/search?q=com.github.flying-cattle">
+        <img src="https://img.shields.io/maven-central/v/com.gitee.nuliing/rmq-api.svg?label=Maven%20Central" ></img>
+    </a>
+    <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" ></img>
+    </a>
+    <a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
+        <img src="https://img.shields.io/badge/JDK-1.8+-green.svg" ></img>
+    </a>
+</p>
+
 # mybatis-dsc-generator
 完美集成lombok，swagger的代码生成工具，让你不再为繁琐的注释和简单的接口实现而烦恼：entity集成，格式校验，swagger; dao自动加@ mapper，service自动注释和依赖; 控制器实现单表的增副改查，并集成swagger实现api文档。如果有缘看见，期望得到你的star，very thx.
 # 源码地址
