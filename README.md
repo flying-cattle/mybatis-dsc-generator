@@ -18,7 +18,7 @@
 <dependency>
     <groupId>com.github.flying-cattle</groupId>
     <artifactId>mybatis-dsc-generator</artifactId>
-    <version>2.1.0.RELEASE</version>
+    <version>3.0.0.RELEASE</version>
 </dependency>
 ```
 # 数据表结构样式
