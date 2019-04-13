@@ -34,12 +34,13 @@ public class EntityInfoUtil {
 		// 创建连接
 		Connection con = null;
 		PreparedStatement pstemt = null;
+		ResultSet rs = null;
 		//sql
 		String sql="select column_name,data_type,column_comment from information_schema.columns where table_schema='"+bi.getDatabase()+"' and table_name='"+bi.getTable()+"'";
 		try {
 			con = DriverManager.getConnection(bi.getDbUrl(), bi.getDbName(), bi.getDbPassword());
 			pstemt = con.prepareStatement(sql);
-			ResultSet rs = pstemt.executeQuery();
+			rs = pstemt.executeQuery();
 			while (rs.next()) {
 				String column = rs.getString(1);
 				String jdbcType = rs.getString(2);
@@ -73,6 +74,10 @@ public class EntityInfoUtil {
 			e.printStackTrace();
 			throw new RuntimeException("自动生成实体类错误："+e.getMessage());
 		} finally {
+            try{
+                if(rs!=null) rs.close();
+            }catch(SQLException se2){
+            }
 			// 关闭资源
             try{
                 if(pstemt!=null) pstemt.close();
