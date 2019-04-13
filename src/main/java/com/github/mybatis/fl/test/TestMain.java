@@ -53,6 +53,7 @@ public class TestMain {
 			String aa4=Generator.createService(fileUrl, bi).toString();
 			String aa5=Generator.createServiceImpl(fileUrl, bi).toString();
 			String aa6=Generator.createController(fileUrl, bi).toString();
+			//swagger配置文件还未上传至maven中央库，代码中已实现。
 			String aa7=Generator.createSwaggerConfig(fileUrl, bi).toString();
 			//创建swagger配置
 			
