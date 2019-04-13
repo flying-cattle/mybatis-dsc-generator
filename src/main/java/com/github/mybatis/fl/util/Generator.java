@@ -32,7 +32,7 @@ public class Generator {
 	public static final String SERVICE="service";
 	public static final String SERVICE_IMPL="serviceImpl";
 	public static final String CONTROLLER="controller";
-	
+	public static final String SWAGGER_CONFIG="swaggerConfig";
 	
 	//①创建实体类
 	public static JsonResult createEntity(String url,BasisInfo bi) {
@@ -76,8 +76,12 @@ public class Generator {
 		String fileUrl= getGeneratorFileUrl(url, bi.getControllerUrl(), bi.getEntityName(), CONTROLLER);
 		return FreemarkerUtil.createFile(bi, "controller.ftl", fileUrl);
 	}
-	
-	//生成文件
+	//⑥创建CONTROLLER
+	public static JsonResult createSwaggerConfig(String url,BasisInfo bi) {
+		String fileUrl= getGeneratorFileUrl(url,bi.getSwaggerConfigUrl(), "Swagger", SWAGGER_CONFIG);
+		return FreemarkerUtil.createFile(bi, "SwaggerConfig.ftl", fileUrl);
+	}
+	//生成文件路径和名字
 	public static String getGeneratorFileUrl(String url,String packageUrl,String entityName, String type){
 		if (type.equals("entity")) {
 			return url+pageToUrl(packageUrl)+entityName+".java";
@@ -91,6 +95,8 @@ public class Generator {
 			return url+pageToUrl(packageUrl)+entityName+"ServiceImpl.java";
 		}else if(type.equals("controller")) {
 			return url+pageToUrl(packageUrl)+entityName+"Controller.java";
+		}else if(type.equals("swaggerConfig")){
+			return url+pageToUrl(packageUrl)+entityName+"Config.java";
 		}
 		return null;
 	}

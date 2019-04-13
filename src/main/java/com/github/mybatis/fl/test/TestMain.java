@@ -8,7 +8,6 @@ package com.github.mybatis.fl.test;
 
 import java.sql.SQLException;
 import java.util.Date;
-
 import com.github.mybatis.fl.entity.BasisInfo;
 import com.github.mybatis.fl.util.EntityInfoUtil;
 import com.github.mybatis.fl.util.Generator;
@@ -47,12 +46,15 @@ public class TestMain {
 		bi.setEntityComment(CLASSCOMMENT);
 		try {
 			bi=EntityInfoUtil.getInfo(bi);
-			String aa1=Generator.createEntity("E:\\b_test_work\\", bi).toString();
-			String aa2=Generator.createDao("E:\\b_test_work\\", bi).toString();
-			String aa3=Generator.createDaoImpl("E:\\b_test_work\\", bi).toString();
-			String aa4=Generator.createService("E:\\b_test_work\\", bi).toString();
-			String aa5=Generator.createServiceImpl("E:\\b_test_work\\", bi).toString();
-			String aa6=Generator.createController("E:\\b_test_work\\", bi).toString();
+			String fileUrl="E:\\b_test_work\\";//生成文件存放位置
+			String aa1=Generator.createEntity(fileUrl, bi).toString();
+			String aa2=Generator.createDao(fileUrl, bi).toString();
+			String aa3=Generator.createDaoImpl(fileUrl, bi).toString();
+			String aa4=Generator.createService(fileUrl, bi).toString();
+			String aa5=Generator.createServiceImpl(fileUrl, bi).toString();
+			String aa6=Generator.createController(fileUrl, bi).toString();
+			String aa7=Generator.createSwaggerConfig(fileUrl, bi).toString();
+			//创建swagger配置
 			
 			System.out.println(aa1);
 			System.out.println(aa2);
@@ -60,6 +62,7 @@ public class TestMain {
 			System.out.println(aa4);
 			System.out.println(aa5);
 			System.out.println(aa6);
+			System.out.println(aa7);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -69,6 +69,8 @@ public class BasisInfo implements Serializable{
 	
 	private String controllerUrl;
 	
+	private String swaggerConfigUrl;
+	
 	private String idType;
 	
 	private String idJdbcType;
@@ -94,5 +96,6 @@ public class BasisInfo implements Serializable{
 		this.serviceUrl = serviceUrl;
 		this.serviceImplUrl = serviceImplUrl;
 		this.controllerUrl = controllerUrl;
+		this.swaggerConfigUrl=controllerUrl.substring(0, controllerUrl.lastIndexOf("."))+".config";
 	}
 }

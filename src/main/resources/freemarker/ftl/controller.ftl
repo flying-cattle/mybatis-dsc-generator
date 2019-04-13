@@ -6,12 +6,9 @@
  */
 package ${controllerUrl};
 
-
-
 import com.item.util.JsonResult;
 import ${entityUrl}.${entityName};
 import ${serviceUrl}.${entityName}Service;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -39,7 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Modification History:
  * Date         	Author          Version          Description
  *---------------------------------------------------------------*
- * ${createTime}      ${author}    ${version}           initialize
+ * ${createTime}     ${author}    	${version}        initialize
  */
 @Api(description = "${entityComment}",value="${entityComment}" )
 @RestController
