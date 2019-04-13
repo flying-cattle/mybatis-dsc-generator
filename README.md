@@ -1,4 +1,8 @@
 <p align="center">
+	<img src="https://oscimg.oschina.net/oscnet/7bccb4d805f683659d4f0ab1ef1a85edaa3.jpg" ></img>
+</p>
+
+<p align="center">
     <a target="_blank" href="https://search.maven.org/search?q=com.github.flying-cattle">
         <img src="https://img.shields.io/maven-central/v/com.gitee.nuliing/rmq-api.svg?label=Maven%20Central" ></img>
     </a>
