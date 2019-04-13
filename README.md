@@ -410,8 +410,10 @@ public class UserController {
 import java.io.Serializable;
 import java.net.ConnectException;
 import java.sql.SQLException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+
 /**   
  * Copyright: Copyright (c) 2019 
  * 
@@ -424,9 +426,10 @@ import org.slf4j.LoggerFactory;
  *---------------------------------------------------------*
  * 2019/4/9 	flying-cattle  V1.0            initialize
  */
+@Slf4j
+@Data
 public class JsonResult<T> implements Serializable{
 	
-	Logger logger = LoggerFactory.getLogger(this.getClass());
 	private static final long serialVersionUID = 1071681926787951549L;
 
 	/**
@@ -449,37 +452,8 @@ public class JsonResult<T> implements Serializable{
      * <p>返回数据</p>
      */
     private T data;
-    public Boolean getTrue() {
-        return isTrue;
-    }
-    public void setTrue(Boolean aTrue) {
-        isTrue = aTrue;
-    }
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
-    public String getMessage() {
-        return message;
-    }
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    public T getData() {
-        return data;
-    }
-    public void setData(T data) {
-        this.data = data;
-    }
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-    /**
+   
+	/**
      * <p>返回成功</p>
      * @param type 业务码
      * @param message 错误说明
@@ -497,7 +471,7 @@ public class JsonResult<T> implements Serializable{
         this.code ="0000";
     }
     public JsonResult(Throwable throwable) {
-    	logger.error(throwable+"tt");
+    	log.error(throwable+"tt");
         this.isTrue=false;
         if(throwable instanceof NullPointerException){
             this.code= "1001";
@@ -530,7 +504,7 @@ public class JsonResult<T> implements Serializable{
             this.code= "1010";
             this.message="运行时异常："+throwable;
         }else if(throwable instanceof Exception){ 
-        	logger.error("未知异常："+throwable);
+        	log.error("未知异常："+throwable);
             this.code= "9999";
             this.message="未知异常"+throwable;
         }
