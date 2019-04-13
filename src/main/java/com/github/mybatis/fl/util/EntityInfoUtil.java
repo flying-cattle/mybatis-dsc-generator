@@ -39,11 +39,11 @@ public class EntityInfoUtil {
 		try {
 			con = DriverManager.getConnection(bi.getDbUrl(), bi.getDbName(), bi.getDbPassword());
 			pstemt = con.prepareStatement(sql);
-			ResultSet executeQuery = pstemt.executeQuery();
-			while (executeQuery.next()) {
-				String column = executeQuery.getString(1);
-				String jdbcType = executeQuery.getString(2);
-				String comment = executeQuery.getString(3);
+			ResultSet rs = pstemt.executeQuery();
+			while (rs.next()) {
+				String column = rs.getString(1);
+				String jdbcType = rs.getString(2);
+				String comment = rs.getString(3);
 				PropertyInfo ci=new PropertyInfo();
 				ci.setColumn(column);
 				if (jdbcType.equalsIgnoreCase("int")) {
@@ -64,13 +64,25 @@ public class EntityInfoUtil {
 				columns.add(ci);
 			}
 			bi.setCis(columns);
+			// 完成后关闭
+			rs.close();
+			pstemt.close();
+			con.close();
 			return bi;
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("自动生成实体类错误："+e.getMessage());
 		} finally {
-			pstemt.close();
-			con.close();
+			// 关闭资源
+            try{
+                if(pstemt!=null) pstemt.close();
+            }catch(SQLException se2){
+            }// 什么都不做
+            try{
+                if(con!=null) con.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }
 		}
 	}
 }
