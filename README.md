@@ -1,4 +1,20 @@
-# mybatis-dsc-generato
+<p align="center">
+	<img src="https://oscimg.oschina.net/oscnet/7bccb4d805f683659d4f0ab1ef1a85edaa3.jpg" ></img>
+</p>
+
+<p align="center">
+    <a target="_blank" href="https://search.maven.org/search?q=com.github.flying-cattle">
+        <img src="https://img.shields.io/maven-central/v/com.gitee.nuliing/rmq-api.svg?label=Maven%20Central" ></img>
+    </a>
+    <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" ></img>
+    </a>
+    <a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
+        <img src="https://img.shields.io/badge/JDK-1.8+-green.svg" ></img>
+    </a>
+</p>
+
+# mybatis-dsc-generator
 完美集成lombok，swagger的代码生成工具，让你不再为繁琐的注释和简单的接口实现而烦恼：entity集成，格式校验，swagger; dao自动加@ mapper，service自动注释和依赖; 控制器实现单表的增副改查，并集成swagger实现api文档。如果有缘看见，期望得到你的star，very thx.
 # 源码地址
 - GitHub:https://github.com/flying-cattle/mybatis-dsc-generator
@@ -18,7 +34,7 @@
 <dependency>
     <groupId>com.github.flying-cattle</groupId>
     <artifactId>mybatis-dsc-generator</artifactId>
-    <version>2.1.0.RELEASE</version>
+    <version>3.0.0.RELEASE</version>
 </dependency>
 ```
 # 数据表结构样式
@@ -43,7 +59,7 @@ CREATE TABLE `user` (
 要求必须有表注释，要求必须有主键为id,所有字段必须有注释（便于生成java注释swagger等）。
 
 # 生成的实体类
-生成方法参考源码中的：https://github.com/flying-cattle/mybatis-dsc-generator/blob/master/src/main/java/com/github/mybatis/test/TestMain.java
+生成方法参考源码中的：https://github.com/flying-cattle/mybatis-dsc-generator/blob/mybatisPlus/src/main/java/com/github/mybatis/fl/test/TestMain.java
 
 # 生成的实体类
 ``` java
@@ -96,38 +112,38 @@ public class User extends Model<User> {
     @ApiModelProperty(name = "password" , value = "登录密码")
     private String password;
 
-	@ApiModelProperty(name = "nickname" , value = "用户昵称")
+    @ApiModelProperty(name = "nickname" , value = "用户昵称")
     private String nickname;
 
-	@ApiModelProperty(name = "type" , value = "用户类型")
+    @ApiModelProperty(name = "type" , value = "用户类型")
     private Integer type;
 
-	@ApiModelProperty(name = "state" , value = "用户状态")
+    @ApiModelProperty(name = "state" , value = "用户状态")
     private Integer state;
 
-	@ApiModelProperty(name = "note" , value = "备注")
+    @ApiModelProperty(name = "note" , value = "备注")
     private String note;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-	@ApiModelProperty(name = "createTime" , value = "用户创建时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @ApiModelProperty(name = "createTime" , value = "用户创建时间")
     private Date createTime;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-	@ApiModelProperty(name = "updateTime" , value = "修改时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @ApiModelProperty(name = "updateTime" , value = "修改时间")
     private Date updateTime;
 	
-	@ApiModelProperty(name = "updateUid" , value = "修改人用户ID")
+    @ApiModelProperty(name = "updateUid" , value = "修改人用户ID")
     private Long updateUid;
 
-	@ApiModelProperty(name = "loginIp" , value = "登录IP")
+    @ApiModelProperty(name = "loginIp" , value = "登录IP")
     private String loginIp;
 
-	@ApiModelProperty(name = "loginIp" , value = "登录地址")
+    @ApiModelProperty(name = "loginIp" , value = "登录地址")
     private String loginAddr;
 	
-	@Override
+    @Override
     protected Serializable pkVal() {
         return this.id;
     }
@@ -265,98 +281,97 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequestMapping("/user")
 public class UserController {
 
-	Logger logger = LoggerFactory.getLogger(this.getClass());
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@Autowired
-	public UserService userServiceImpl;
+    @Autowired
+    public UserService userServiceImpl;
 	
-	/**
-	 * @explain 查询用户对象  <swagger GET请求>
-	 * @param   对象参数：id
-	 * @return  user
-	 * @author  BianPeng
-	 * @time    2019年4月9日
-	 */
-	@GetMapping("/getUserById/{id}")
-	@ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：BianPeng")
-	@ApiImplicitParam(paramType="path", name = "id", value = "用户id", required = true, dataType = "Long")
-	public JsonResult<User> getUserById(@PathVariable("id")Long id){
-		JsonResult<User> result=new JsonResult<User>();
-		try {
-			User user=userServiceImpl.getById(id);
-			if (user!=null) {
-				result.setType("success");
-				result.setMessage("成功");
-				result.setData(user);
-			} else {
-				logger.error("获取用户失败ID："+id);
-				result.setType("fail");
-				result.setMessage("你获取的用户不存在");
-			}
-		} catch (Exception e) {
-			logger.error("获取用户执行异常："+e.getMessage());
-			result=new JsonResult<User>(e);
-		}
-		return result;
-	}
+    /**
+    * @explain 查询用户对象  <swagger GET请求>
+    * @param   对象参数：id
+    * @return  user
+    * @author  BianPeng
+    * @time    2019年4月9日
+    */
+    @GetMapping("/getUserById/{id}")
+    @ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：BianPeng")
+    @ApiImplicitParam(paramType="path", name = "id", value = "用户id", required = true, dataType = "Long")
+    public JsonResult<User> getUserById(@PathVariable("id")Long id){
+    	JsonResult<User> result=new JsonResult<User>();
+    	try {
+    		User user=userServiceImpl.getById(id);
+    		if (user!=null) {
+    			result.setType("success");
+    			result.setMessage("成功");
+    			result.setData(user);
+    		} else {
+    			logger.error("获取用户失败ID："+id);
+    			result.setType("fail");
+    			result.setMessage("你获取的用户不存在");
+    		}
+    	} catch (Exception e) {
+    		logger.error("获取用户执行异常："+e.getMessage());
+    		result=new JsonResult<User>(e);
+    	}
+    	return result;
+    }
+    /**
+     * @explain 添加或者更新用户对象
+     * @param   对象参数：user
+     * @return  int
+     * @author  BianPeng
+     * @time    2019年4月9日
+     */
+    @PostMapping("/insertSelective")
+    @ApiOperation(value = "添加用户", notes = "添加用户[user],作者：BianPeng")
+    public JsonResult<User> insertSelective(User user){
+    	JsonResult<User> result=new JsonResult<User>();
+    	try {
+    		boolean rg=userServiceImpl.saveOrUpdate(user);
+    		if (rg) {
+    			result.setType("success");
+    			result.setMessage("成功");
+	    		result.setData(user);
+		    } else {
+			    logger.error("添加用户执行失败："+user.toString());
+			    result.setType("fail");
+			    result.setMessage("执行失败，请稍后重试");
+    		}
+	    } catch (Exception e) {
+	    	logger.error("添加用户执行异常："+e.getMessage());
+	    	result=new JsonResult<User>(e);
+	    }
+       return result;
+    }
 	
-	/**
-	 * @explain 添加或者更新用户对象
-	 * @param   对象参数：user
-	 * @return  int
-	 * @author  BianPeng
-	 * @time    2019年4月9日
-	 */
-	@PostMapping("/insertSelective")
-	@ApiOperation(value = "添加用户", notes = "添加用户[user],作者：BianPeng")
-	public JsonResult<User> insertSelective(User user){
-		JsonResult<User> result=new JsonResult<User>();
-		try {
-			boolean rg=userServiceImpl.saveOrUpdate(user);
-			if (rg) {
-				result.setType("success");
-				result.setMessage("成功");
-				result.setData(user);
-			} else {
-				logger.error("添加用户执行失败："+user.toString());
-				result.setType("fail");
-				result.setMessage("执行失败，请稍后重试");
-			}
-		} catch (Exception e) {
-			logger.error("添加用户执行异常："+e.getMessage());
-			result=new JsonResult<User>(e);
-		}
-		return result;
-	}
-	
-	/**
-	 * @explain 删除用户对象
-	 * @param   对象参数：id
-	 * @return  int
-	 * @author  BianPeng
-	 * @time    2019年4月9日
-	 */
-	@PostMapping("/deleteByPrimaryKey")
-	@ApiOperation(value = "删除用户", notes = "删除用户,作者：BianPeng")
-	@ApiImplicitParam(paramType="query", name = "id", value = "用户id", required = true, dataType = "Long")
-	public JsonResult<Object> deleteByPrimaryKey(Long id){
-		JsonResult<Object> result=new JsonResult<Object>();
-		try {
-			boolean reg=userServiceImpl.removeById(id);
-			if (reg) {
-				result.setType("success");
-				result.setMessage("成功");
-				result.setData(id);
-			} else {
-				logger.error("删除用户失败ID："+id);
-				result.setType("fail");
-				result.setMessage("执行错误，请稍后重试");
-			}
-		} catch (Exception e) {
-			logger.error("删除用户执行异常："+e.getMessage());
-			result=new JsonResult<Object>(e);
-		}
-		return result;
+    /**
+     * @explain 删除用户对象
+     * @param   对象参数：id
+     * @return  int
+     * @author  BianPeng
+     * @time    2019年4月9日
+     */
+    @PostMapping("/deleteByPrimaryKey")
+    @ApiOperation(value = "删除用户", notes = "删除用户,作者：BianPeng")
+    @ApiImplicitParam(paramType="query", name = "id", value = "用户id", required = true, dataType = "Long")
+    public JsonResult<Object> deleteByPrimaryKey(Long id){
+    	JsonResult<Object> result=new JsonResult<Object>();
+	    try {
+	    	boolean reg=userServiceImpl.removeById(id);
+	    	if (reg) {
+    			result.setType("success");
+    			result.setMessage("成功");
+    			result.setData(id);
+    		} else {
+    			logger.error("删除用户失败ID："+id);
+    			result.setType("fail");
+    			result.setMessage("执行错误，请稍后重试");
+    		}
+    	} catch (Exception e) {
+    		logger.error("删除用户执行异常："+e.getMessage());
+    		result=new JsonResult<Object>(e);
+    	}
+    	return result;
 	}
 	
 	/**
@@ -399,8 +414,10 @@ public class UserController {
 import java.io.Serializable;
 import java.net.ConnectException;
 import java.sql.SQLException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+
 /**   
  * Copyright: Copyright (c) 2019 
  * 
@@ -413,9 +430,10 @@ import org.slf4j.LoggerFactory;
  *---------------------------------------------------------*
  * 2019/4/9 	flying-cattle  V1.0            initialize
  */
+@Slf4j
+@Data
 public class JsonResult<T> implements Serializable{
 	
-	Logger logger = LoggerFactory.getLogger(this.getClass());
 	private static final long serialVersionUID = 1071681926787951549L;
 
 	/**
@@ -438,37 +456,8 @@ public class JsonResult<T> implements Serializable{
      * <p>返回数据</p>
      */
     private T data;
-    public Boolean getTrue() {
-        return isTrue;
-    }
-    public void setTrue(Boolean aTrue) {
-        isTrue = aTrue;
-    }
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
-    public String getMessage() {
-        return message;
-    }
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    public T getData() {
-        return data;
-    }
-    public void setData(T data) {
-        this.data = data;
-    }
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-    /**
+   
+	/**
      * <p>返回成功</p>
      * @param type 业务码
      * @param message 错误说明
@@ -486,7 +475,7 @@ public class JsonResult<T> implements Serializable{
         this.code ="0000";
     }
     public JsonResult(Throwable throwable) {
-    	logger.error(throwable+"tt");
+    	log.error(throwable+"tt");
         this.isTrue=false;
         if(throwable instanceof NullPointerException){
             this.code= "1001";
@@ -519,7 +508,7 @@ public class JsonResult<T> implements Serializable{
             this.code= "1010";
             this.message="运行时异常："+throwable;
         }else if(throwable instanceof Exception){ 
-        	logger.error("未知异常："+throwable);
+        	log.error("未知异常："+throwable);
             this.code= "9999";
             this.message="未知异常"+throwable;
         }
