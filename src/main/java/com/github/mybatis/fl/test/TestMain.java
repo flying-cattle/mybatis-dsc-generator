@@ -21,7 +21,7 @@ public class TestMain {
 	//数据库连接信息
 	public static final String URL="jdbc:mysql://127.0.0.1:3306/earn_knife?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true&serverTimezone=UTC";
 	public static final String NAME="root";
-	public static final String PASSWORD="pwd2020";
+	public static final String PASS="pwd2020";
 	public static final String DATABASE="earn_knife";
 	//类信息
 	public static final String TABLE="user";
@@ -39,7 +39,7 @@ public class TestMain {
 	
 	
 	public static void main(String[] args) {
-		BasisInfo bi=new BasisInfo(PROJECT, AUTHOR, VERSION, URL, NAME, PASSWORD, DATABASE, TIME, AGILE, ENTITY_URL, DAO_URL, XML_URL, SERVICE_URL, SERVICE_IMPL_URL, CONTROLLER_URL);
+		BasisInfo bi=new BasisInfo(PROJECT, AUTHOR, VERSION, URL, NAME, PASS, DATABASE, TIME, AGILE, ENTITY_URL, DAO_URL, XML_URL, SERVICE_URL, SERVICE_IMPL_URL, CONTROLLER_URL);
 		bi.setTable(TABLE);
 		bi.setEntityName(MySqlToJavaUtil.getClassName(TABLE));
 		bi.setObjectName(MySqlToJavaUtil.changeToJavaFiled(TABLE));
