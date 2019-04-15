@@ -6,6 +6,7 @@
  */
 package ${swaggerConfigUrl};
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -26,11 +27,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 	
+	@Value("${server.port}")
+    private static String port;
+	
 	public static String CONTROLLER_URL="${controllerUrl}";    //Swagger扫描的接口路径
 	public static String SWAGGER_TITLE="API文档-${author}"; 	    		//Swagger接口文档标题
 	public static String SWAGGER_DESCRIPTION="API文档";   				//Swagger接口文档描述
 	public static String SWAGGER_VERSION="1.0";                         //Swagger接口文档版本
-	public static String SWAGGER_URL="http://127.0.0.1:8080";           //Swagger项目服务的URL
+	public final static String SWAGGER_URL="http://127.0.0.1:"+port;    //Swagger项目服务的URL
 	
 	//验证的页面http://127.0.0.1:8080/swagger-ui.html
 	@Bean
