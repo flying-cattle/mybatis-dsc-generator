@@ -28,7 +28,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 	
-	@Value("${server.port}")
+	@Value("${r'${server.port}'}")
     private static String port;
 	
 	public static String CONTROLLER_URL="${controllerUrl}";    //Swagger扫描的接口路径
