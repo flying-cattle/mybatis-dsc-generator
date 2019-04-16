@@ -29,12 +29,12 @@
     <version>2.1.0.RELEASE</version>
 </dependency>
 ```
-3.0.0版本是集成了Mybatis-plus版本——源码分支mybatisPlus
+3.0.0后的版本是集成了Mybatis-plus版本——源码分支mybatisPlus
 ``` xml
 <dependency>
-    <groupId>com.github.flying-cattle</groupId>
-    <artifactId>mybatis-dsc-generator</artifactId>
-    <version>3.0.0.RELEASE</version>
+  <groupId>com.github.flying-cattle</groupId>
+  <artifactId>mybatis-dsc-generator</artifactId>
+  <version>3.0.1.RELEASE</version>
 </dependency>
 ```
 # 数据表结构样式
