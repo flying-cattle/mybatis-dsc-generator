@@ -4,7 +4,7 @@
 
 <p align="center">
     <a target="_blank" href="https://search.maven.org/search?q=com.github.flying-cattle">
-        <img src="https://img.shields.io/maven-central/v/com.gitee.nuliing/rmq-api.svg?label=Maven%20Central" ></img>
+        <img alt="Maven Central" src="https://img.shields.io/maven-central/v/com.github.flying-cattle/mybatis-dsc-generator.svg">
     </a>
     <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" ></img>
