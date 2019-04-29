@@ -12,7 +12,12 @@ import com.github.mybatis.fl.entity.BasisInfo;
 import com.github.mybatis.fl.util.EntityInfoUtil;
 import com.github.mybatis.fl.util.Generator;
 import com.github.mybatis.fl.util.MySqlToJavaUtil;
-
+/**   
+ * Copyright: Copyright (c) 2019 
+ * 
+ * <p>说明： 自动生成工具</P>
+ * <p>源码地址：https://gitee.com/flying-cattle/mybatis-dsc-generator</P>
+ */
 public class TestMain {
 	//基础信息
 	public static final String PROJECT="user_center";
@@ -53,9 +58,8 @@ public class TestMain {
 			String aa4=Generator.createService(fileUrl, bi).toString();
 			String aa5=Generator.createServiceImpl(fileUrl, bi).toString();
 			String aa6=Generator.createController(fileUrl, bi).toString();
-			//swagger配置文件还未上传至maven中央库，代码中已实现。
+			//是否创建swagger配置文件
 			String aa7=Generator.createSwaggerConfig(fileUrl, bi).toString();
-			//创建swagger配置
 			
 			System.out.println(aa1);
 			System.out.println(aa2);
