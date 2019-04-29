@@ -4,7 +4,7 @@
 
 <p align="center">
     <a target="_blank" href="https://search.maven.org/search?q=com.github.flying-cattle">
-        <img src="https://img.shields.io/maven-central/v/com.gitee.nuliing/rmq-api.svg?label=Maven%20Central" ></img>
+        <img alt="Maven Central" src="https://img.shields.io/maven-central/v/com.github.flying-cattle/mybatis-dsc-generator.svg">
     </a>
     <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" ></img>
@@ -29,12 +29,12 @@
     <version>2.1.0.RELEASE</version>
 </dependency>
 ```
-3.0.0版本是集成了Mybatis-plus版本——源码分支mybatisPlus
+3.0.0后的版本是集成了Mybatis-plus版本——源码分支mybatisPlus
 ``` xml
 <dependency>
-    <groupId>com.github.flying-cattle</groupId>
-    <artifactId>mybatis-dsc-generator</artifactId>
-    <version>3.0.0.RELEASE</version>
+  <groupId>com.github.flying-cattle</groupId>
+  <artifactId>mybatis-dsc-generator</artifactId>
+  <version>3.0.1.RELEASE</version>
 </dependency>
 ```
 # 数据表结构样式
@@ -93,9 +93,6 @@ import java.io.Serializable;
  *---------------------------------------------------------------*
  * 2019年4月9日      BianPeng    V1.0         initialize
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
