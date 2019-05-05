@@ -57,7 +57,7 @@ public class ${entityName}Controller {
 	@GetMapping("/getById/{id}")
 	@ApiOperation(value = "获取${entityComment}信息", notes = "获取${entityComment}信息[${objectName}]，作者：${author}")
 	@ApiImplicitParam(paramType="path", name = "id", value = "${entityComment}id", required = true, dataType = "${idType}")
-	public JsonResult<${entityName}> get${entityName}ById(@PathVariable("id")${idType} id){
+	public JsonResult<${entityName}> getById(@PathVariable("id")${idType} id){
 		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			${entityName} ${objectName}=${objectName}ServiceImpl.getById(id);
@@ -86,7 +86,7 @@ public class ${entityName}Controller {
 	 */
 	@PostMapping("/saveOrUpdate")
 	@ApiOperation(value = "添加${entityComment}", notes = "添加${entityComment}[${objectName}],作者：${author}")
-	public JsonResult<${entityName}> insertSelective(${entityName} ${objectName}){
+	public JsonResult<${entityName}> saveOrUpdate(${entityName} ${objectName}){
 		JsonResult<${entityName}> result=new JsonResult<${entityName}>();
 		try {
 			boolean rg=${objectName}ServiceImpl.saveOrUpdate(${objectName});
