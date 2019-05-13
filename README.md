@@ -89,9 +89,9 @@ import java.io.Serializable;
  * @author: BianPeng
  * 
  * Modification History:
- * Date         	Author          Version          Description
+ * Date         	Author          Version      Description
  *---------------------------------------------------------------*
- * 2019年4月9日      BianPeng    V1.0         initialize
+ * 2019年4月9日         BianPeng         V1.0         initialize
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -160,9 +160,9 @@ import com.xin.usercenter.entity.User;
  * @author: BianPeng
  * 
  * Modification History:
- * Date         	Author          Version          Description
+ * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日      BianPeng    V1.0         initialize
+ * 2019年4月9日         BianPeng         V1.0         initialize
  */
 @Mapper
 public interface UserDao extends BaseMapper<User> {
@@ -207,9 +207,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author: BianPeng
  * 
  * Modification History:
- * Date         	Author          Version          Description
+ * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日      BianPeng    V1.0           initialize
+ * 2019年4月9日         BianPeng         V1.0         initialize
  */
 public interface UserService extends IService<User> {
 	
@@ -231,9 +231,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
  * @author: BianPeng
  * 
  * Modification History:
- * Date         	Author          Version          Description
+ * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日      BianPeng    V1.0           initialize
+ * 2019年4月9日         BianPeng         V1.0         initialize
  */
 @Service
 public class UserServiceImpl  extends ServiceImpl<UserDao, User> implements UserService  {
@@ -269,9 +269,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author: BianPeng
  * 
  * Modification History:
- * Date         	Author          Version          Description
+ * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日      BianPeng    V1.0           initialize
+ * 2019年4月9日         BianPeng         V1.0         initialize
  */
 @Api(description = "用户",value="用户" )
 @RestController
@@ -423,9 +423,9 @@ import lombok.extern.slf4j.Slf4j;
  * @author: BianPeng
  * 
  * Modification History:
- * Date         Author         Version         Description
- *---------------------------------------------------------*
- * 2019/4/9 	flying-cattle  V1.0            initialize
+ * Date         	Author          Version       Description
+ *---------------------------------------------------------------*
+ * 2019年4月9日         BianPeng         V1.0         initialize
  */
 @Slf4j
 @Data
