@@ -34,7 +34,7 @@
 <dependency>
   <groupId>com.github.flying-cattle</groupId>
   <artifactId>mybatis-dsc-generator</artifactId>
-  <version>3.0.2.RELEASE</version>
+  <version>3.0.3.RELEASE</version>
 </dependency>
 ```
 # 数据表结构样式
