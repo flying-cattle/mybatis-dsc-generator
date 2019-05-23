@@ -86,12 +86,12 @@ import java.io.Serializable;
  * 
  * <p>说明： 用户实体类</P>
  * @version: V1.0
- * @author: BianPeng
+ * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version      Description
  *---------------------------------------------------------------*
- * 2019年4月9日         BianPeng         V1.0         initialize
+ * 2019年4月9日         flying-cattle         V1.0         initialize
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -157,12 +157,12 @@ import com.xin.usercenter.entity.User;
  * 
  * <p>说明： 用户数据访问层</P>
  * @version: V1.0
- * @author: BianPeng
+ * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日         BianPeng         V1.0         initialize
+ * 2019年4月9日         flying-cattle         V1.0         initialize
  */
 @Mapper
 public interface UserDao extends BaseMapper<User> {
@@ -204,12 +204,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 
  * <p>说明： 用户服务层</P>
  * @version: V1.0
- * @author: BianPeng
+ * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日         BianPeng         V1.0         initialize
+ * 2019年4月9日         flying-cattle         V1.0         initialize
  */
 public interface UserService extends IService<User> {
 	
@@ -228,12 +228,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
  * 
  * <p>说明： 用户服务实现层</P>
  * @version: V1.0
- * @author: BianPeng
+ * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日         BianPeng         V1.0         initialize
+ * 2019年4月9日         flying-cattle         V1.0         initialize
  */
 @Service
 public class UserServiceImpl  extends ServiceImpl<UserDao, User> implements UserService  {
@@ -266,12 +266,12 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 
  * <p>说明： 用户API接口层</P>
  * @version: V1.0
- * @author: BianPeng
+ * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日         BianPeng         V1.0         initialize
+ * 2019年4月9日         flying-cattle         V1.0         initialize
  */
 @Api(description = "用户",value="用户" )
 @RestController
@@ -287,11 +287,11 @@ public class UserController {
     * @explain 查询用户对象  <swagger GET请求>
     * @param   对象参数：id
     * @return  user
-    * @author  BianPeng
+    * @author  flying-cattle
     * @time    2019年4月9日
     */
     @GetMapping("/getUserById/{id}")
-    @ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：BianPeng")
+    @ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：flying-cattle")
     @ApiImplicitParam(paramType="path", name = "id", value = "用户id", required = true, dataType = "Long")
     public JsonResult<User> getUserById(@PathVariable("id")Long id){
     	JsonResult<User> result=new JsonResult<User>();
@@ -316,11 +316,11 @@ public class UserController {
      * @explain 添加或者更新用户对象
      * @param   对象参数：user
      * @return  int
-     * @author  BianPeng
+     * @author  flying-cattle
      * @time    2019年4月9日
      */
     @PostMapping("/insertSelective")
-    @ApiOperation(value = "添加用户", notes = "添加用户[user],作者：BianPeng")
+    @ApiOperation(value = "添加用户", notes = "添加用户[user],作者：flying-cattle")
     public JsonResult<User> insertSelective(User user){
     	JsonResult<User> result=new JsonResult<User>();
     	try {
@@ -345,11 +345,11 @@ public class UserController {
      * @explain 删除用户对象
      * @param   对象参数：id
      * @return  int
-     * @author  BianPeng
+     * @author  flying-cattle
      * @time    2019年4月9日
      */
     @PostMapping("/deleteByPrimaryKey")
-    @ApiOperation(value = "删除用户", notes = "删除用户,作者：BianPeng")
+    @ApiOperation(value = "删除用户", notes = "删除用户,作者：flying-cattle")
     @ApiImplicitParam(paramType="query", name = "id", value = "用户id", required = true, dataType = "Long")
     public JsonResult<Object> deleteByPrimaryKey(Long id){
     	JsonResult<Object> result=new JsonResult<Object>();
@@ -375,7 +375,7 @@ public class UserController {
 	 * @explain 分页条件查询用户   
 	 * @param   对象参数：AppPage<User>
 	 * @return  PageInfo<User>
-	 * @author  BianPeng
+	 * @author  flying-cattle
 	 * @time    2019年4月9日
 	 */
 	@GetMapping("/getUserPages")
@@ -420,12 +420,12 @@ import lombok.extern.slf4j.Slf4j;
  * 
  * <p>说明： 用户服务层</P>
  * @version: V1.0
- * @author: BianPeng
+ * @author: flying-cattle
  * 
  * Modification History:
  * Date         	Author          Version       Description
  *---------------------------------------------------------------*
- * 2019年4月9日         BianPeng         V1.0         initialize
+ * 2019年4月9日         flying-cattle         V1.0         initialize
  */
 @Slf4j
 @Data

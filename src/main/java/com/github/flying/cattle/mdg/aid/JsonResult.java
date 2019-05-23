@@ -1,3 +1,9 @@
+/**   
+ * Copyright © 2019 dream horse Info. Tech Ltd. All rights reserved.
+ * @Package: com.github.flying.cattle.mdg.aid
+ * @author: flying-cattle  
+ * @date: 2019年4月9日 下午8:15:25 
+ */
 package com.github.flying.cattle.mdg.aid;
 
 import java.io.Serializable;
@@ -13,12 +19,7 @@ import lombok.NoArgsConstructor;
  * 
  * <p>说明： 用户服务层</P>
  * @version: V1.0
- * @author: BianPeng
- * 
- * Modification History:
- * Date         Author         Version         Description
- *---------------------------------------------------------*
- * 2019/4/9 	flying-cattle  V1.0            initialize
+ * @author: flying-cattle
  */
 @Data
 @NoArgsConstructor
@@ -46,6 +47,8 @@ public class JsonResult<T> implements Serializable{
    
     /**
      * <p>返回成功,有数据</p>
+     * @param T
+     * @return JsonResult<T>
      */
     public JsonResult<T> success(T data) {
     	this.setCode(Const.CODE_SUCCESS);
@@ -68,6 +71,8 @@ public class JsonResult<T> implements Serializable{
     }
     /**
      * <p>返回成功,无数据</p>
+     * @param message
+     * @return JsonResult<T>
      */
     public JsonResult<T> error(String message) {
     	this.setCode(Const.CODE_FAILED);

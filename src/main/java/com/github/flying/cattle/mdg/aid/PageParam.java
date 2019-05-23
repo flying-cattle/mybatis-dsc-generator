@@ -1,8 +1,8 @@
-/**
- * @filename:Const 2018年6月30日
- * @project 紫马 边鹏  V1.0
- * Copyright(c) 2017 BianP Co. Ltd. 
- * All right reserved. 
+/**   
+ * Copyright © 2019 dream horse Info. Tech Ltd. All rights reserved.
+ * @Package: com.github.flying.cattle.mdg.aid
+ * @author: flying-cattle  
+ * @date: 2019年4月9日 下午8:15:25 
  */
 package com.github.flying.cattle.mdg.aid;
 

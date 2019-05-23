@@ -1,7 +1,7 @@
 /**
  * @filename:UserController 2019年4月9日
  * @project wallet-manage  V1.0
- * Copyright(c) 2018 BianPeng Co. Ltd. 
+ * Copyright(c) 2018 flying-cattle Co. Ltd. 
  * All right reserved. 
  */
 package com.flying.cattle.mdg;
@@ -22,7 +22,7 @@ import com.github.flying.cattle.mdg.util.MySqlToJavaUtil;
 public class MyGenerator {
 	// 基础信息
 	public static final String PROJECT = "springboot-mybatis";
-	public static final String AUTHOR = "BianPeng";
+	public static final String AUTHOR = "flying-cattle";
 	public static final String VERSION = "V1.0";
 	// 数据库连接信息
 	public static final String URL = "jdbc:mysql://192.168.9.246:3306/buybit_wallet?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true&serverTimezone=UTC";

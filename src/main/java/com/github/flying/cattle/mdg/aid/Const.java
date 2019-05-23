@@ -1,8 +1,17 @@
+/**   
+ * Copyright © 2019 dream horse Info. Tech Ltd. All rights reserved.
+ * @Package: com.github.flying.cattle.mdg.aid
+ * @author: flying-cattle  
+ * @date: 2019年4月9日 下午8:15:25 
+ */
 package com.github.flying.cattle.mdg.aid;
 
-/**
- * @author BianP
- * @explain 常量类
+/**   
+ * Copyright: Copyright (c) 2019 
+ * 
+ * <p>说明： 用户服务层</P>
+ * @version: V1.0
+ * @author: flying.cattle
  */
 public class Const {
 	/********************** 响应 ****************************/
