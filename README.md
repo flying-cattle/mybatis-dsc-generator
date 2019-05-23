@@ -34,7 +34,7 @@
 <dependency>
   <groupId>com.github.flying-cattle</groupId>
   <artifactId>mybatis-dsc-generator</artifactId>
-  <version>3.0.1.RELEASE</version>
+  <version>3.0.2.RELEASE</version>
 </dependency>
 ```
 # 数据表结构样式
@@ -240,276 +240,43 @@ public class UserServiceImpl  extends ServiceImpl<UserDao, User> implements User
 	
 }
 ```
-# 生成的CONTROLLER
+# 生成的CONTROLLER，父类实现了增删改查接口，分页查询
 ``` java
-import com.item.util.JsonResult;
-import com.xin.usercenter.entity.User;
-import com.xin.usercenter.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+/**
+ * @filename:UserController 2019年5月20日
+ * @project springboot-mybatis  V1.0
+ * Copyright(c) 2020 flying-cattle Co. Ltd. 
+ * All right reserved. 
+ */
+package com.flying.cattle.web;
+
+import com.flying.cattle.aid.AbstractController;
+import com.flying.cattle.entity.User;
+import com.flying.cattle.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**   
- * Copyright: Copyright (c) 2019 
+ * <p>自动生成工具：mybatis-dsc-generator</p>
  * 
  * <p>说明： 用户API接口层</P>
  * @version: V1.0
  * @author: flying-cattle
- * 
- * Modification History:
- * Date         	Author          Version       Description
- *---------------------------------------------------------------*
- * 2019年4月9日         flying-cattle         V1.0         initialize
+ *
  */
 @Api(description = "用户",value="用户" )
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends AbstractController<UserService,User>{
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-    @Autowired
-    public UserService userServiceImpl;
-	
-    /**
-    * @explain 查询用户对象  <swagger GET请求>
-    * @param   对象参数：id
-    * @return  user
-    * @author  flying-cattle
-    * @time    2019年4月9日
-    */
-    @GetMapping("/getUserById/{id}")
-    @ApiOperation(value = "获取用户信息", notes = "获取用户信息[user]，作者：flying-cattle")
-    @ApiImplicitParam(paramType="path", name = "id", value = "用户id", required = true, dataType = "Long")
-    public JsonResult<User> getUserById(@PathVariable("id")Long id){
-    	JsonResult<User> result=new JsonResult<User>();
-    	try {
-    		User user=userServiceImpl.getById(id);
-    		if (user!=null) {
-    			result.setType("success");
-    			result.setMessage("成功");
-    			result.setData(user);
-    		} else {
-    			logger.error("获取用户失败ID："+id);
-    			result.setType("fail");
-    			result.setMessage("你获取的用户不存在");
-    		}
-    	} catch (Exception e) {
-    		logger.error("获取用户执行异常："+e.getMessage());
-    		result=new JsonResult<User>(e);
-    	}
-    	return result;
-    }
-    /**
-     * @explain 添加或者更新用户对象
-     * @param   对象参数：user
-     * @return  int
-     * @author  flying-cattle
-     * @time    2019年4月9日
-     */
-    @PostMapping("/insertSelective")
-    @ApiOperation(value = "添加用户", notes = "添加用户[user],作者：flying-cattle")
-    public JsonResult<User> insertSelective(User user){
-    	JsonResult<User> result=new JsonResult<User>();
-    	try {
-    		boolean rg=userServiceImpl.saveOrUpdate(user);
-    		if (rg) {
-    			result.setType("success");
-    			result.setMessage("成功");
-	    		result.setData(user);
-		    } else {
-			    logger.error("添加用户执行失败："+user.toString());
-			    result.setType("fail");
-			    result.setMessage("执行失败，请稍后重试");
-    		}
-	    } catch (Exception e) {
-	    	logger.error("添加用户执行异常："+e.getMessage());
-	    	result=new JsonResult<User>(e);
-	    }
-       return result;
-    }
-	
-    /**
-     * @explain 删除用户对象
-     * @param   对象参数：id
-     * @return  int
-     * @author  flying-cattle
-     * @time    2019年4月9日
-     */
-    @PostMapping("/deleteByPrimaryKey")
-    @ApiOperation(value = "删除用户", notes = "删除用户,作者：flying-cattle")
-    @ApiImplicitParam(paramType="query", name = "id", value = "用户id", required = true, dataType = "Long")
-    public JsonResult<Object> deleteByPrimaryKey(Long id){
-    	JsonResult<Object> result=new JsonResult<Object>();
-	    try {
-	    	boolean reg=userServiceImpl.removeById(id);
-	    	if (reg) {
-    			result.setType("success");
-    			result.setMessage("成功");
-    			result.setData(id);
-    		} else {
-    			logger.error("删除用户失败ID："+id);
-    			result.setType("fail");
-    			result.setMessage("执行错误，请稍后重试");
-    		}
-    	} catch (Exception e) {
-    		logger.error("删除用户执行异常："+e.getMessage());
-    		result=new JsonResult<Object>(e);
-    	}
-    	return result;
-	}
-	
-	/**
-	 * @explain 分页条件查询用户   
-	 * @param   对象参数：AppPage<User>
-	 * @return  PageInfo<User>
-	 * @author  flying-cattle
-	 * @time    2019年4月9日
-	 */
-	@GetMapping("/getUserPages")
-	@ApiOperation(value = "分页查询", notes = "分页查询返回对象[IPage<User>],作者：边鹏")
-	@ApiImplicitParams({
-        @ApiImplicitParam(paramType="query", name = "pageNum", value = "当前页", required = true, dataType = "int"),
-        @ApiImplicitParam(paramType="query", name = "pageSize", value = "页行数", required = true, dataType = "int")
-    })
-	public JsonResult<Object> getUserPages(Integer pageNum,Integer pageSize){
-	
-		JsonResult<Object> result=new JsonResult<Object>();
-		Page<User> page=new Page<User>(pageNum,pageSize);
-		QueryWrapper<User> queryWrapper =new QueryWrapper<User>();
-		//分页数据
-		try {
-			//List<User> list=userServiceImpl.list(queryWrapper); 
-			IPage<User> pageInfo=userServiceImpl.page(page, queryWrapper);
-			result.setType("success");
-			result.setMessage("成功");
-			result.setData(pageInfo);
-		} catch (Exception e) {
-			logger.error("分页查询用户执行异常："+e.getMessage());
-			result=new JsonResult<Object>(e);
-		}
-		return result;
-	}
 }
 ```
 
 看到这里，大家应该能看出，这个代码生成只适合一些特定的项目，不过确实为了那些喜欢lombok，swagger的猿们减少了很多不必要的工作。
-一些朋友在问我JsonResult类：
-``` java
-import java.io.Serializable;
-import java.net.ConnectException;
-import java.sql.SQLException;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+一些朋友在问我JsonResult类，都在包内部
 
-
-/**   
- * Copyright: Copyright (c) 2019 
- * 
- * <p>说明： 用户服务层</P>
- * @version: V1.0
- * @author: flying-cattle
- * 
- * Modification History:
- * Date         	Author          Version       Description
- *---------------------------------------------------------------*
- * 2019年4月9日         flying-cattle         V1.0         initialize
- */
-@Slf4j
-@Data
-public class JsonResult<T> implements Serializable{
-	
-	private static final long serialVersionUID = 1071681926787951549L;
-
-	/**
-     * <p>返回状态</p>
-     */
-    private Boolean isTrue=true;
-    /**
-     *<p> 状态码</p>
-     */
-    private String code;
-    /**
-     * <p>业务码</p>
-     */
-    private String type;
-    /**
-     *<p> 状态说明</p>
-     */
-    private String message;
-    /**
-     * <p>返回数据</p>
-     */
-    private T data;
-   
-	/**
-     * <p>返回成功</p>
-     * @param type 业务码
-     * @param message 错误说明
-     * @param data 数据
-     */
-    public JsonResult(String type, String message, T data) {
-        this.isTrue=true;
-        this.code ="0000";
-        this.type=type;
-        this.message = message;
-        this.data=data;
-    }
-    public JsonResult() {
-        this.isTrue=true;
-        this.code ="0000";
-    }
-    public JsonResult(Throwable throwable) {
-    	log.error(throwable+"tt");
-        this.isTrue=false;
-        if(throwable instanceof NullPointerException){
-            this.code= "1001";
-            this.message="空指针："+throwable;
-        }else if(throwable instanceof ClassCastException ){
-            this.code= "1002";
-            this.message="类型强制转换异常："+throwable;
-        }else if(throwable instanceof ConnectException){
-            this.code= "1003";
-            this.message="链接失败："+throwable;
-        }else if(throwable instanceof IllegalArgumentException ){
-            this.code= "1004";
-            this.message="传递非法参数异常："+throwable;
-        }else if(throwable instanceof NumberFormatException){
-            this.code= "1005";
-            this.message="数字格式异常："+throwable;
-        }else if(throwable instanceof IndexOutOfBoundsException){
-            this.code= "1006";
-            this.message="下标越界异常："+throwable;
-        }else if(throwable instanceof SecurityException){
-            this.code= "1007";
-            this.message="安全异常："+throwable;
-        }else if(throwable instanceof SQLException){
-            this.code= "1008";
-            this.message="数据库异常："+throwable;
-        }else if(throwable instanceof ArithmeticException){
-            this.code= "1009";
-            this.message="算术运算异常："+throwable;
-        }else if(throwable instanceof RuntimeException){
-            this.code= "1010";
-            this.message="运行时异常："+throwable;
-        }else if(throwable instanceof Exception){ 
-        	log.error("未知异常："+throwable);
-            this.code= "9999";
-            this.message="未知异常"+throwable;
-        }
-    }
-}
-```
 
