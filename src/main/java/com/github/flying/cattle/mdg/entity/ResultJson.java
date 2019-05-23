@@ -4,9 +4,10 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.entity;
+package com.github.flying.cattle.mdg.entity;
 
 import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 /**   
  * Copyright: Copyright (c) 2019 
  * 
- * <p>说明： 自动生成文件路径</P>
+ * <p>说明： 返回结果json对象</P>
  * @version: v3.0.0
  * @author: flying-cattle
  * 
@@ -23,21 +24,17 @@ import lombok.NoArgsConstructor;
  *---------------------------------------------------------------*
  * 2019年4月9日      		flying-cattle   v3.0.0           initialize
  */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GeneratorFileUrl implements Serializable{
-	private static final long serialVersionUID = 123125L;
-
-	private String entityUrl;
-	 
-	private String daoUrl;
-	 
-	private String mapperUrl;
-	 
-	private String serviceUrl;
-	 
-	private String serviceImplUrl;
-	 
-	private String controllerUrl;
+public class ResultJson implements Serializable{
+	
+	private static final long serialVersionUID = 123126L;
+	
+	private Integer code;
+	
+	private String message;
+	
+	private Object data;
 }

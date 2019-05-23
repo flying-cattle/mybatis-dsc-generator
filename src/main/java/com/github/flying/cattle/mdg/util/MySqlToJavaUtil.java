@@ -4,10 +4,10 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.util;
+package com.github.flying.cattle.mdg.util;
 
-import com.github.mybatis.fl.convert.DateType;
-import com.github.mybatis.fl.convert.MySqlTypeConvert;
+import com.github.flying.cattle.mdg.convert.DateType;
+import com.github.flying.cattle.mdg.convert.MySqlTypeConvert;
 /**   
  * Copyright: Copyright (c) 2019 
  * 

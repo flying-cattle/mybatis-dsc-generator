@@ -4,14 +4,14 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.util;
+package com.github.flying.cattle.mdg.util;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.github.mybatis.fl.entity.BasisInfo;
-import com.github.mybatis.fl.entity.JsonResult;
+import com.github.flying.cattle.mdg.entity.BasisInfo;
+import com.github.flying.cattle.mdg.entity.ResultJson;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -30,8 +30,8 @@ import freemarker.template.Template;
  */
 public class FreemarkerUtil {
 	 
-	public static JsonResult createFile(BasisInfo dataModel, String templateName, String filePath) {
-		JsonResult result=new JsonResult();
+	public static ResultJson createFile(BasisInfo dataModel, String templateName, String filePath) {
+		ResultJson result=new ResultJson();
 		FileWriter out = null;
 		String fileName=dataModel.getEntityName()+messageStr(templateName);
 		try {

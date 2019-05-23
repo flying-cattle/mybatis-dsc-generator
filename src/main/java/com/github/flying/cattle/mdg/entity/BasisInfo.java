@@ -4,7 +4,7 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.entity;
+package com.github.flying.cattle.mdg.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -67,6 +67,8 @@ public class BasisInfo implements Serializable{
 	
 	private String serviceImplUrl;
 	
+	private String abstractControllerUrl;
+	
 	private String controllerUrl;
 	
 	private String swaggerConfigUrl;
@@ -96,6 +98,7 @@ public class BasisInfo implements Serializable{
 		this.serviceUrl = serviceUrl;
 		this.serviceImplUrl = serviceImplUrl;
 		this.controllerUrl = controllerUrl;
+		this.abstractControllerUrl = controllerUrl.substring(0, controllerUrl.lastIndexOf("."))+".aid";
 		this.swaggerConfigUrl=controllerUrl.substring(0, controllerUrl.lastIndexOf("."))+".config";
 	}
 }

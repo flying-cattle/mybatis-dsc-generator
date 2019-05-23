@@ -18,6 +18,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * <p>自动生成工具：mybatis-dsc-generator</p>
  * Swagger核心配置文件
  * ========================
  * @author ${author} 

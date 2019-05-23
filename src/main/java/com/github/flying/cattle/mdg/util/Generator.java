@@ -4,13 +4,13 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.util;
+package com.github.flying.cattle.mdg.util;
 
 import java.util.List;
 
-import com.github.mybatis.fl.entity.BasisInfo;
-import com.github.mybatis.fl.entity.JsonResult;
-import com.github.mybatis.fl.entity.PropertyInfo;
+import com.github.flying.cattle.mdg.entity.BasisInfo;
+import com.github.flying.cattle.mdg.entity.ResultJson;
+import com.github.flying.cattle.mdg.entity.PropertyInfo;
 
 /**   
  * Copyright: Copyright (c) 2019 
@@ -35,19 +35,19 @@ public class Generator {
 	public static final String SWAGGER_CONFIG="swaggerConfig";
 	
 	//①创建实体类
-	public static JsonResult createEntity(String url,BasisInfo bi) {
+	public static ResultJson createEntity(String url,BasisInfo bi) {
 		String fileUrl= getGeneratorFileUrl(url, bi.getEntityUrl(), bi.getEntityName(), ENTITY);
 		return FreemarkerUtil.createFile(bi, "entity.ftl", fileUrl);
 	}
 	
 	//②创建DAO
-	public static JsonResult createDao(String url,BasisInfo bi) {
+	public static ResultJson createDao(String url,BasisInfo bi) {
 		String fileUrl= getGeneratorFileUrl(url, bi.getDaoUrl(), bi.getEntityName(), DAO);
 		return FreemarkerUtil.createFile(bi, "dao.ftl", fileUrl);
 	}
 	
 	//③创建mapper配置文件
-	public static JsonResult createDaoImpl(String url,BasisInfo bi) {
+	public static ResultJson createDaoImpl(String url,BasisInfo bi) {
 		String fileUrl= getGeneratorFileUrl(url, bi.getMapperUrl(), bi.getEntityName(), DAO_IMPL);
 		List<PropertyInfo> list=bi.getCis();
 		String agile="";
@@ -60,24 +60,32 @@ public class Generator {
 	}
 	
 	//④创建SERVICE
-	public static JsonResult createService(String url,BasisInfo bi) {
+	public static ResultJson createService(String url,BasisInfo bi) {
 		String fileUrl= getGeneratorFileUrl(url, bi.getServiceUrl(), bi.getEntityName(), SERVICE);
 		return FreemarkerUtil.createFile(bi, "service.ftl", fileUrl);
 	}
 	
 	//⑤创建SERVICE_IMPL
-	public static JsonResult createServiceImpl(String url,BasisInfo bi) {
+	public static ResultJson createServiceImpl(String url,BasisInfo bi) {
 		String fileUrl= getGeneratorFileUrl(url, bi.getServiceImplUrl(), bi.getEntityName(), SERVICE_IMPL);
 		return FreemarkerUtil.createFile(bi, "serviceImpl.ftl", fileUrl);
 	}
 	
 	//⑥创建CONTROLLER
-	public static JsonResult createController(String url,BasisInfo bi) {
+	public static ResultJson createController(String url,BasisInfo bi) {
+		createAbstractController( url, bi); //保证父类一直存在
 		String fileUrl= getGeneratorFileUrl(url, bi.getControllerUrl(), bi.getEntityName(), CONTROLLER);
 		return FreemarkerUtil.createFile(bi, "controller.ftl", fileUrl);
 	}
-	//⑥创建CONTROLLER
-	public static JsonResult createSwaggerConfig(String url,BasisInfo bi) {
+	
+	//⑦创建抽象的CONTROLLER
+	public static ResultJson createAbstractController(String url,BasisInfo bi) {
+		String fileUrl= getGeneratorFileUrl(url, bi.getAbstractControllerUrl(),"Abstract", CONTROLLER);
+		return FreemarkerUtil.createFile(bi, "AbstractController.ftl", fileUrl);
+	}
+	
+	//⑧创建CONTROLLER
+	public static ResultJson createSwaggerConfig(String url,BasisInfo bi) {
 		String fileUrl= getGeneratorFileUrl(url,bi.getSwaggerConfigUrl(), "Swagger", SWAGGER_CONFIG);
 		return FreemarkerUtil.createFile(bi, "SwaggerConfig.ftl", fileUrl);
 	}

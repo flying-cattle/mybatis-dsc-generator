@@ -4,15 +4,15 @@
  * https://www.apache.org/licenses/LICENSE-2.0
  * <p>
  * @Package: com.github.mybatis.fl.convert
- * @author: flying-cattle 
- * @date: 2019年4月9日 下午8:09:35 
+ * @author: flying-cattle  
+ * @date: 2019年4月9日 下午8:06:16 
  */
-package com.github.mybatis.fl.convert;
+package com.github.flying.cattle.mdg.convert;
 
 /**   
 * Copyright: Copyright (c) 2019 
 * 
-* <p>说明： 获取实体类字段属性类信息接口</p>
+* <p>说明: 该类的功能描述</p>
 * @version: v3.0.0
 * @author: flying-cattle
 *
@@ -21,18 +21,12 @@ package com.github.mybatis.fl.convert;
 *---------------------------------------------------------------*
 * 2019年4月9日      		flying-cattle   v3.0.0           initialize
 */
-public interface IColumnType {
+public interface ITypeConvert {
 	/**
-     * <p>获取字段类型</p>
-     *
-     * @return 字段类型
+     * <p>说明:执行类型转换</p>
+     * @param dateType 	时间类型
+     * @param fieldType 字段类型
+     * @return ignore
      */
-    String getType();
-
-    /**
-     * <p> 获取字段类型完整名</p>
-     *
-     * @return 字段类型完整名
-     */
-    String getPkg();
+    IColumnType processTypeConvert(DateType dateType , String fieldType);
 }

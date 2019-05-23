@@ -1,7 +1,7 @@
 /**
  * @filename:${entityName} ${createTime}
  * @project ${project}  ${version}
- * Copyright(c) 2018 ${author} Co. Ltd. 
+ * Copyright(c) 2020 ${author} Co. Ltd. 
  * All right reserved. 
  */
 package ${entityUrl};
@@ -19,16 +19,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 
 /**   
- * Copyright: Copyright (c) 2019 
+ * <p>自动生成工具：mybatis-dsc-generator</p>
  * 
  * <p>说明： ${entityComment}实体类</P>
  * @version: ${version}
  * @author: ${author}
  * 
- * Modification History:
- * Date         	Author          Version          Description
- *---------------------------------------------------------------*
- * ${createTime}      ${author}    ${version}           initialize
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

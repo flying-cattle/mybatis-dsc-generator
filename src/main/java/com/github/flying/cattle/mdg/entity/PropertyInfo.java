@@ -4,7 +4,7 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.entity;
+package com.github.flying.cattle.mdg.entity;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 /**   
  * Copyright: Copyright (c) 2019 
  * 
- * <p>说明： 返回结果json对象</P>
+ * <p>说明： 获取到数据库的信息</P>
  * @version: v3.0.0
  * @author: flying-cattle
  * 
@@ -24,17 +24,20 @@ import lombok.NoArgsConstructor;
  *---------------------------------------------------------------*
  * 2019年4月9日      		flying-cattle   v3.0.0           initialize
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JsonResult implements Serializable{
+public class PropertyInfo implements Serializable{
 	
-	private static final long serialVersionUID = 123126L;
+	private static final long serialVersionUID = 123124L;
 	
-	private Integer code;
-	
-	private String message;
-	
-	private Object data;
+	private String column;
+
+	private String jdbcType;
+	 
+	private String comment;
+	 
+	private String property;
+	 
+	private String javaType;
 }

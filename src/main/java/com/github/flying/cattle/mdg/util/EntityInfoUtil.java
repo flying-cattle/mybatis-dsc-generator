@@ -4,7 +4,7 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:15:25 
  */
-package com.github.mybatis.fl.util;
+package com.github.flying.cattle.mdg.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +14,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.mybatis.fl.entity.BasisInfo;
-import com.github.mybatis.fl.entity.PropertyInfo;
+import com.github.flying.cattle.mdg.entity.BasisInfo;
+import com.github.flying.cattle.mdg.entity.PropertyInfo;
 /**   
  * Copyright: Copyright (c) 2019 
  * 

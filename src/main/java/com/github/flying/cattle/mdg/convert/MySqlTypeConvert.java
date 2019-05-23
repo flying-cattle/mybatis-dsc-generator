@@ -5,9 +5,9 @@
  * @author: flying-cattle  
  * @date: 2019年4月9日 下午8:13:13 
  */
-package com.github.mybatis.fl.convert;
+package com.github.flying.cattle.mdg.convert;
 
-import com.github.mybatis.fl.convert.ITypeConvert;
+import com.github.flying.cattle.mdg.convert.ITypeConvert;
 /**   
  * Copyright: Copyright (c) 2019 
  * 
