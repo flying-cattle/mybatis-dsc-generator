@@ -277,6 +277,8 @@ public class UserController extends AbstractController<UserService,User>{
 ```
 
 看到这里，大家应该能看出，这个代码生成只适合一些特定的项目，不过确实为了那些喜欢lombok，swagger的猿们减少了很多不必要的工作。
-一些朋友在问我JsonResult类，都在包内部
+一些朋友在问我JsonResult类，都在包内部。
+
+使用场景，整合的应用项目：https://gitee.com/flying-cattle/infrastructure
 
 
