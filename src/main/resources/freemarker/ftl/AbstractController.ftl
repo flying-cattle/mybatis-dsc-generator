@@ -70,7 +70,7 @@ public class AbstractController<S extends IService<T>,T>{
 		if (null!=obj) {
 		  boolean rsg = baseService.removeById(id);
 		  if (rsg) {
-			    result.success();
+			    result.success("删除成功");
 		  }else {
 			   result.error("删除失败！");
 		  }
@@ -94,7 +94,7 @@ public class AbstractController<S extends IService<T>,T>{
 		if (null!=entity) {
 			boolean rsg = baseService.save(entity);
 			if (rsg) {
-				  result.success();
+				  result.success("添加成功");
 			  }else {
 				  result.error("添加失败！");
 			  }
@@ -118,7 +118,7 @@ public class AbstractController<S extends IService<T>,T>{
 		if (null!=entity) {
 			boolean rsg = baseService.updateById(entity);
 			if (rsg) {
-				  result.success();
+				  result.success("修改成功");
 			  }else {
 				  result.error("修改失败！");
 			  }

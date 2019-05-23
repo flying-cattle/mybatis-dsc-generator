@@ -47,38 +47,66 @@ public class JsonResult<T> implements Serializable{
    
     /**
      * <p>返回成功,有数据</p>
-     * @param T
-     * @return JsonResult<T>
+     * @param message 操作说明
+     * @param data 对象
+     * @return JsonResult
      */
-    public JsonResult<T> success(T data) {
+    public JsonResult<T> success(String message,T data) {
     	this.setCode(Const.CODE_SUCCESS);
     	this.setOperate(Const.OPERATE_SUCCESS);
-    	this.setMessage("操作成功！");
+    	this.setMessage(message);
     	this.setData(data);
     	return this;
     }
 
     /**
-     * <p>返回成功,无数据</p>
+     * <p>返回成功,有数据</p>
+     * @param data 对象
+     * @return JsonResult
      */
-    public JsonResult<T> success() {
+    public JsonResult<T> success(T data) {
     	this.setCode(Const.CODE_SUCCESS);
     	this.setOperate(Const.OPERATE_SUCCESS);
-    	this.setMessage("操作成功！");
+    	this.setMessage("操作成功");
+    	this.setData(data);
+    	return this;
+    }
+    /**
+     * <p>返回成功,无数据</p>
+     * @param message 操作说明
+     * @return JsonResult
+     */
+    public JsonResult<T> success(String message) {
+    	this.setCode(Const.CODE_SUCCESS);
+    	this.setOperate(Const.OPERATE_SUCCESS);
+    	this.setMessage(message);
     	this.setData(null);
     	return this;
 
     }
     /**
-     * <p>返回成功,无数据</p>
-     * @param message
-     * @return JsonResult<T>
+     * <p>返回失败,无数据</p>
+     * @param message 消息
+     * @return JsonResult
      */
     public JsonResult<T> error(String message) {
     	this.setCode(Const.CODE_FAILED);
     	this.setOperate(Const.OPERATE_FAILED);
     	this.setMessage(message);
     	this.setData(null);
+    	return this;
+    }
+    /**
+     * <p>返回失败,有数据</p>
+     * @param message 消息
+     * @param data 对象
+     * @return JsonResult
+     */
+    public JsonResult<T> error(String message,T data) {
+    	this.setCode(Const.CODE_FAILED);
+    	this.setOperate(Const.OPERATE_FAILED);
+    	this.setMessage(message);
+    	this.setData(data);
     	return this;
     }
     public JsonResult(Throwable throwable) {
