@@ -4,15 +4,14 @@
  * Copyright(c) 2018 BianPeng Co. Ltd. 
  * All right reserved. 
  */
-package com.flying.cattle.mdg;
+package com.github.mybatis.fl.test;
 
 import java.sql.SQLException;
 import java.util.Date;
-
-import com.github.mybatis.fl.entity.BasisInfo;
-import com.github.mybatis.fl.util.EntityInfoUtil;
-import com.github.mybatis.fl.util.Generator;
-import com.github.mybatis.fl.util.MySqlToJavaUtil;
+import com.github.flying.cattle.mdg.entity.BasisInfo;
+import com.github.flying.cattle.mdg.util.EntityInfoUtil;
+import com.github.flying.cattle.mdg.util.Generator;
+import com.github.flying.cattle.mdg.util.MySqlToJavaUtil;
 
 /**
  * Copyright: Copyright (c) 2019
