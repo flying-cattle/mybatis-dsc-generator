@@ -26,8 +26,8 @@ public class MyGenerator {
 		public static final String VERSION = "V1.0";
 		// 数据库连接信息：连接URL、用户名、秘密、数据库名
 		public static final String URL = "jdbc:mysql://127.0.0.1:3306/buybit_wallet_sign?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true&serverTimezone=UTC";
-		public static final String NAME = "root";
-		public static final String PASS = "pwd2020";
+		public static final String NAME = "";
+		public static final String PASS = "";
 		public static final String DATABASE = "buybit_wallet_sign";
 		// 类信息：类名、对象名（一般是【类名】的首字母小些）、类说明、时间
 		public static final String CLASSNAME = "CollectionRoute";
@@ -43,7 +43,7 @@ public class MyGenerator {
 		public static final String SERVICE_IMPL_URL = "com.buybit.ws.service.impl";
 		public static final String CONTROLLER_URL = "com.buybit.ws.web";
 		//是否是Swagger配置
-		public static final String IS_SWAGGER = "false";
+		public static final String IS_SWAGGER = "true";
 		
 	public static void main(String[] args) {
 		BasisInfo bi = new BasisInfo(PROJECT, AUTHOR, VERSION, URL, NAME, PASS, DATABASE, TIME, AGILE, ENTITY_URL,

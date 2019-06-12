@@ -6,7 +6,7 @@
 
 	<groupId>com.github.flying-cattle</groupId>
 	<artifactId>mybatis-dsc-generator</artifactId>
-	<version>3.0.3.RELEASE</version>
+	<version>3.0.4.RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>mybatis-dsc-generator</name>
