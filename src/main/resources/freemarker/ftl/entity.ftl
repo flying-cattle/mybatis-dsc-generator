@@ -5,12 +5,13 @@
  * All right reserved. 
  */
 package ${entityUrl};
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
+<#if isSwagger=="true" >
 import io.swagger.annotations.ApiModelProperty;
+</#if>
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -49,7 +50,9 @@ public class ${entityName} extends Model<${entityName}> {
  <#if ci.property=="id">
 	@TableId(value = "id", type = IdType.AUTO)
  </#if>
+ <#if isSwagger=="true" >
 	@ApiModelProperty(name = "${ci.property}" , value = "${ci.comment}")
+ </#if>
 	private ${ci.javaType} ${ci.property};
 </#list>
 	@Override

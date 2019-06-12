@@ -79,9 +79,11 @@ public class BasisInfo implements Serializable{
 	
 	private List<PropertyInfo> cis;
 	
+	private String isSwagger="true";
+	
 	public BasisInfo(String project, String author, String version, String dbUrl, String dbName, String dbPassword,
 			String database, String createTime, String agile, String entityUrl, String daoUrl, String mapperUrl,
-			String serviceUrl, String serviceImplUrl, String controllerUrl) {
+			String serviceUrl, String serviceImplUrl, String controllerUrl,String isSwagger) {
 		super();
 		this.project = project;
 		this.author = author;
@@ -100,5 +102,6 @@ public class BasisInfo implements Serializable{
 		this.controllerUrl = controllerUrl;
 		this.abstractControllerUrl = controllerUrl.substring(0, controllerUrl.lastIndexOf("."))+".aid";
 		this.swaggerConfigUrl=controllerUrl.substring(0, controllerUrl.lastIndexOf("."))+".config";
+		this.isSwagger=isSwagger;
 	}
 }

@@ -11,7 +11,9 @@ import ${entityUrl}.${entityName};
 import ${serviceUrl}.${entityName}Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+<#if isSwagger=="true" >
 import io.swagger.annotations.Api;
+</#if>
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**   
@@ -22,7 +24,9 @@ import org.slf4j.LoggerFactory;
  * @author: ${author}
  *
  */
+ <#if isSwagger=="true" >
 @Api(description = "${entityComment}",value="${entityComment}" )
+</#if>
 @RestController
 @RequestMapping("/${objectName}")
 public class ${entityName}Controller extends AbstractController<${entityName}Service,${entityName}>{

@@ -16,9 +16,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.flying.cattle.mdg.aid.JsonResult;
 import com.github.flying.cattle.mdg.aid.PageParam;
-
+<#if isSwagger=="true" >
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+</#if>
 
 /**   
  * <p>自动生成工具：mybatis-dsc-generator</p>
@@ -42,8 +43,10 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @time    2019年4月9日
 	 */
 	@GetMapping("/getById/{id}")
+	<#if isSwagger=="true" >
 	@ApiOperation(value = "获取对象", notes = "作者：${author}")
 	@ApiImplicitParam(paramType="path", name = "id", value = "对象id", required = true, dataType = "Long")
+	</#if>
 	public JsonResult<T> getUserById(@PathVariable("id")Long id){
 		T obj=baseService.getById(id);
 		if (null!=obj ) {
@@ -62,8 +65,10 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @time    2019年4月9日
 	 */
 	@PostMapping("/deleteById")
+	<#if isSwagger=="true" >
 	@ApiOperation(value = "删除", notes = "作者：${author}")
 	@ApiImplicitParam(paramType="query", name = "id", value = "对象id", required = true, dataType = "Long")
+	</#if>
 	public JsonResult<T> deleteById(Long id){
 		JsonResult<T> result=new JsonResult<T>();
 		T obj=baseService.getById(id);
@@ -88,7 +93,9 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @time    2019年4月9日
 	 */
 	@PostMapping("/insert")
+	<#if isSwagger=="true" >
 	@ApiOperation(value = "添加", notes = "作者：${author}")
+	</#if>
 	public JsonResult<T> insert(T entity){
 		JsonResult<T> result=new JsonResult<T>();
 		if (null!=entity) {
@@ -112,7 +119,9 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @time    2019年4月9日
 	 */
 	@PostMapping("/update")
+	<#if isSwagger=="true" >
 	@ApiOperation(value = "修改", notes = "作者：${author}")
+	</#if>
 	public JsonResult<T> update(T entity){
 		JsonResult<T> result=new JsonResult<T>();
 		if (null!=entity) {
@@ -136,7 +145,9 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @time    2019年5月20日
 	 */
 	@GetMapping("/getPages")
+	<#if isSwagger=="true" >
 	@ApiOperation(value = "分页查询", notes = "分页查询返回[IPage<T>],作者：边鹏")
+	</#if>
 	public JsonResult<IPage<T>> getUserPages(PageParam<T> param){
 		JsonResult<IPage<T>> returnPage=new JsonResult<IPage<T>>();
 		Page<T> page=new Page<T>(param.getPageNum(),param.getPageSize());
