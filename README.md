@@ -59,7 +59,7 @@ CREATE TABLE `user` (
 要求必须有表注释，要求必须有主键为id,所有字段必须有注释（便于生成java注释swagger等）。
 
 # 生成的实体类
-生成方法参考源码中的：https://github.com/flying-cattle/mybatis-dsc-generator/blob/mybatisPlus/src/main/java/com/github/mybatis/fl/test/TestMain.java
+生成方法参考源码中的：https://github.com/flying-cattle/mybatis-dsc-generator/blob/mybatisPlus/src/test/java/com/flying/cattle/mdg/MyGenerator.java
 
 # 生成的实体类
 ``` java
