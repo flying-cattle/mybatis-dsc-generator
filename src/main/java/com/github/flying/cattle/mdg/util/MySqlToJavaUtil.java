@@ -62,4 +62,14 @@ public class MySqlToJavaUtil {
 		MySqlTypeConvert typeConvert= new MySqlTypeConvert();
 		return typeConvert.processTypeConvert(DateType.ONLY_DATE, sqlType).getType();
 	}
+	
+	/**
+     * <p>说明:把sql的数据类型转为java需要的类型</p>
+     * @param sqlType  sql类型
+     * @return String  java类型
+     */
+	public static String jdbcTypeToJavaTypePck(String sqlType) {
+		MySqlTypeConvert typeConvert= new MySqlTypeConvert();
+		return typeConvert.processTypeConvert(DateType.ONLY_DATE, sqlType).getPkg();
+	}
 }

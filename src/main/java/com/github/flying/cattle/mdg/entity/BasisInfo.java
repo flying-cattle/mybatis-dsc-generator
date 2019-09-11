@@ -7,7 +7,9 @@
 package com.github.flying.cattle.mdg.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -80,6 +82,8 @@ public class BasisInfo implements Serializable{
 	private List<PropertyInfo> cis;
 	
 	private String isSwagger="true";
+	
+	private Set<String> pkgs = new HashSet<String>();
 	
 	public BasisInfo(String project, String author, String version, String dbUrl, String dbName, String dbPassword,
 			String database, String createTime, String agile, String entityUrl, String daoUrl, String mapperUrl,

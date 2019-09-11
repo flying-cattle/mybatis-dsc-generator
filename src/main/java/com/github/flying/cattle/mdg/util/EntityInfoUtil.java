@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.github.flying.cattle.mdg.entity.BasisInfo;
 import com.github.flying.cattle.mdg.entity.PropertyInfo;
@@ -63,6 +64,10 @@ public class EntityInfoUtil {
 					bi.setIdJdbcType(ci.getJdbcType());
 				}
 				columns.add(ci);
+				//添加包路径
+				Set<String> pkgs= bi.getPkgs();
+				pkgs.add(MySqlToJavaUtil.jdbcTypeToJavaTypePck(jdbcType));
+				bi.setPkgs(pkgs);
 			}
 			bi.setCis(columns);
 			// 完成后关闭

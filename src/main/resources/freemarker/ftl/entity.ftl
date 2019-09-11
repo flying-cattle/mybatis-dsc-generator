@@ -15,9 +15,13 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
+<#list pkgs as ps>
+	<#if ps??>
+import ${ps};
+	</#if>
+</#list>
 
 /**   
  * <p>自动生成工具：mybatis-dsc-generator</p>
@@ -54,7 +58,9 @@ public class ${entityName} extends Model<${entityName}> {
 	@ApiModelProperty(name = "${ci.property}" , value = "${ci.comment}")
  </#if>
 	private ${ci.javaType} ${ci.property};
+    
 </#list>
+
 	@Override
     protected Serializable pkVal() {
         return this.id;
