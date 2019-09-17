@@ -26,8 +26,8 @@ import io.swagger.annotations.ApiOperation;
  * 
  * <p>说明： ${entityComment}API接口层</P>
  * @version: ${version}
- * @author: ${author}
- *
+ * @author:  ${author}
+ * @time     ${createTime}
  */
 public class AbstractController<S extends IService<T>,T>{
 	
@@ -40,7 +40,7 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @param   对象参数：id
 	 * @return  JsonResult
 	 * @author  ${author}
-	 * @time    2019年4月9日
+	 * @time    ${createTime}
 	 */
 	@GetMapping("/getById/{id}")
 	<#if isSwagger=="true" >
@@ -62,7 +62,7 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @param   对象参数：id
 	 * @return  JsonResult
 	 * @author  ${author}
-	 * @time    2019年4月9日
+	 * @time    ${createTime}
 	 */
 	@PostMapping("/deleteById")
 	<#if isSwagger=="true" >
@@ -90,7 +90,7 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @param   对象参数：T
 	 * @return  Boolean
 	 * @author  ${author}
-	 * @time    2019年4月9日
+	 * @time    ${createTime}
 	 */
 	@PostMapping("/insert")
 	<#if isSwagger=="true" >
@@ -116,7 +116,7 @@ public class AbstractController<S extends IService<T>,T>{
 	 * @param   对象参数：T
 	 * @return  Boolean
 	 * @author  ${author}
-	 * @time    2019年4月9日
+	 * @time    ${createTime}
 	 */
 	@PostMapping("/update")
 	<#if isSwagger=="true" >
@@ -139,14 +139,14 @@ public class AbstractController<S extends IService<T>,T>{
 	
 	/**
 	 * @explain 分页条件查询用户   
-	 * @param   对象参数：AppPage<User>
-	 * @return  PageInfo<User>
+	 * @param   对象参数：AppPage<${entityName}>
+	 * @return  PageInfo<${entityName}>
 	 * @author  ${author}
-	 * @time    2019年5月20日
+	 * @time    ${createTime}
 	 */
 	@GetMapping("/getPages")
 	<#if isSwagger=="true" >
-	@ApiOperation(value = "分页查询", notes = "分页查询返回[IPage<T>],作者：边鹏")
+	@ApiOperation(value = "分页查询", notes = "分页查询返回[IPage<T>],作者：${author}")
 	</#if>
 	public JsonResult<IPage<T>> getPages(PageParam<T> param){
 		JsonResult<IPage<T>> returnPage=new JsonResult<IPage<T>>();
