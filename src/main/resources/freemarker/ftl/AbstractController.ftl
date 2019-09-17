@@ -47,7 +47,7 @@ public class AbstractController<S extends IService<T>,T>{
 	@ApiOperation(value = "获取对象", notes = "作者：${author}")
 	@ApiImplicitParam(paramType="path", name = "id", value = "对象id", required = true, dataType = "Long")
 	</#if>
-	public JsonResult<T> getUserById(@PathVariable("id")Long id){
+	public JsonResult<T> getById(@PathVariable("id")Long id){
 		T obj=baseService.getById(id);
 		if (null!=obj ) {
 			 result.success(obj);
@@ -148,7 +148,7 @@ public class AbstractController<S extends IService<T>,T>{
 	<#if isSwagger=="true" >
 	@ApiOperation(value = "分页查询", notes = "分页查询返回[IPage<T>],作者：边鹏")
 	</#if>
-	public JsonResult<IPage<T>> getUserPages(PageParam<T> param){
+	public JsonResult<IPage<T>> getPages(PageParam<T> param){
 		JsonResult<IPage<T>> returnPage=new JsonResult<IPage<T>>();
 		Page<T> page=new Page<T>(param.getPageNum(),param.getPageSize());
 		QueryWrapper<T> queryWrapper =new QueryWrapper<T>();
