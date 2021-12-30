@@ -6,12 +6,12 @@
  */
 package com.github.mybatis.fl.test;
 
-import java.sql.SQLException;
-import java.util.Date;
 import com.github.mybatis.fl.entity.BasisInfo;
 import com.github.mybatis.fl.util.EntityInfoUtil;
 import com.github.mybatis.fl.util.Generator;
 import com.github.mybatis.fl.util.MySqlToJavaUtil;
+
+import java.sql.SQLException;
 
 /**
  * Copyright: Copyright (c) 2019

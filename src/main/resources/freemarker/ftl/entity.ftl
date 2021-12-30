@@ -1,9 +1,3 @@
-/**
- * @filename:${entityName} ${createTime}
- * @project ${project}  ${version}
- * Copyright(c) 2018 ${author} Co. Ltd. 
- * All right reserved. 
- */
 package ${entityUrl};
 
 import java.io.Serializable;
@@ -16,13 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-/**   
- *  
- * @Description:  ${entityComment}
- * @Author:       ${author}   
- * @CreateDate:   ${createTime}
- * @Version:      ${version}
- *    
+/**
+ * ${entityComment}
  */
 @Data
 @AllArgsConstructor
@@ -30,21 +19,21 @@ import lombok.AllArgsConstructor;
 public class ${entityName} implements Serializable {
 
 	private static final long serialVersionUID = ${agile}L;
-	
+
 <#list cis as ci>
 	<#if ci.javaType=="Date">
 	<#if ci.jdbcType=="date">
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT+8")
     <#elseif ci.jdbcType=="time">
     @DateTimeFormat(pattern = "HH:mm:ss")
-	@JsonFormat(pattern="HH:mm:ss",timezone = "GMT+8")
+	@JsonFormat(pattern="HH:mm:ss", timezone = "GMT+8")
 	<#else>
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	</#if>
 	</#if>
-	@ApiModelProperty(name = "${ci.property}" , value = "${ci.comment}")
+	@ApiModelProperty(name = "${ci.property}", value = "${ci.comment}")
 	private ${ci.javaType} ${ci.property};
 </#list>
 }

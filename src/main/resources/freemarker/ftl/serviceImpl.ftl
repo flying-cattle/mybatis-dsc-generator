@@ -1,9 +1,3 @@
-/**
- * @filename:${entityName}ServiceImpl ${createTime}
- * @project ${project}  ${version}
- * Copyright(c) 2018 ${author} Co. Ltd. 
- * All right reserved. 
- */
 package ${serviceImplUrl};
 
 import java.util.List;
@@ -18,13 +12,8 @@ import ${entityUrl}.${entityName};
 import ${daoUrl}.${entityName}Dao;
 import ${serviceUrl}.${entityName}Service;
 
-/**   
- *  
- * @Description:  ${entityComment}——SERVICEIMPL
- * @Author:       ${author}   
- * @CreateDate:   ${createTime}
- * @Version:      ${version}
- *    
+/**
+ * ${entityComment}
  */
 @Service
 public class ${entityName}ServiceImpl implements ${entityName}Service {
@@ -32,31 +21,31 @@ public class ${entityName}ServiceImpl implements ${entityName}Service {
 	@Autowired
 	public ${entityName}Dao ${objectName}Dao;
 	
-	//查询对象
+	//根据id查询
 	@Override
 	public ${entityName} selectByPrimaryKey(${idType} id) {
 		return ${objectName}Dao.selectByPrimaryKey(id);
 	}
 	
-	//删除对象
+	//根据id删除
 	@Override
 	public int deleteByPrimaryKey(${idType} id) {
 		return ${objectName}Dao.deleteByPrimaryKey(id);
 	}
 	
-	//添加对象
+	//新增
 	@Override
 	public int insertSelective(${entityName} ${objectName}) {
 		return ${objectName}Dao.insertSelective(${objectName});
 	}
 	
-	//修改对象
+	//修改
 	@Override
 	public int updateByPrimaryKeySelective(${entityName} ${objectName}) {
 		return ${objectName}Dao.updateByPrimaryKeySelective(${objectName});
 	}
 	
-	//查询集合
+	//条件查询
 	@Override
 	public List<${entityName}> query${entityName}List(${entityName} ${objectName}) {
 		return ${objectName}Dao.query${entityName}List(${objectName});
@@ -67,7 +56,7 @@ public class ${entityName}ServiceImpl implements ${entityName}Service {
 	public PageInfo<${entityName}> get${entityName}BySearch(AppPage<${entityName}> page) {
 		// TODO Auto-generated method stub
 		PageHelper.startPage(page.getPageNum(),page.getPageSize());
-		List<${entityName}> list=${objectName}Dao.query${entityName}List(page.getParam());
+		List<${entityName}> list = ${objectName}Dao.query${entityName}List(page.getParam());
 		PageInfo<${entityName}> pageInfo = new PageInfo<${entityName}>(list);
 		return pageInfo;
 	}
